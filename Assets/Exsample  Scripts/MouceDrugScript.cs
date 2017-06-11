@@ -27,7 +27,8 @@ public class MouceDrugScript : MonoBehaviour {
 	public GameObject hitEfect;
 	public GameObject enemy;
 	public GameObject nextbutton;
-	public GameObject skillbuttons;
+	public GameObject skillbutton1;
+	public GameObject skillbutton2;
 	Vector3 movingpos;
 	GameObject moverange;
 	GameObject hpBar;
@@ -45,7 +46,8 @@ public class MouceDrugScript : MonoBehaviour {
 		rangeRend = moverange.GetComponent<Renderer> (); 
 		_rigidbody = GetComponent<Rigidbody> ();
 		nextbutton.SetActive (false);
-		skillbuttons.SetActive (false);
+		skillbutton1.SetActive (false);
+		skillbutton2.SetActive (false);
 		if (EnemyMoveScript.enemySpeed <= speed) {
 			turncheck = 1;
 		} else {
@@ -140,10 +142,12 @@ public class MouceDrugScript : MonoBehaviour {
 	public void SkillWindowPopUp(){
 		if (commandcheck == 0) {
 			if (buttonPopUpCheck == 0) {
-				skillbuttons.SetActive (true);
+				skillbutton1.SetActive (true);
+				skillbutton2.SetActive (true);
 				buttonPopUpCheck = 1;
 			} else if (buttonPopUpCheck == 1) {
-				skillbuttons.SetActive (false);
+				skillbutton1.SetActive (false);
+				skillbutton2.SetActive (false);
 				buttonPopUpCheck = 0;
 			}
 		}
@@ -155,7 +159,8 @@ public class MouceDrugScript : MonoBehaviour {
 			float dis = Vector3.Distance (playerPos, enemyPos);
 			if (dis <= 4f) {
 				enemy.GetComponent<EnemyMoveScript> ().Damage (Random.Range (20, 25),2);
-				skillbuttons.SetActive (false);
+				skillbutton1.SetActive (false);
+				skillbutton2.SetActive (false);
 				buttonPopUpCheck = 0;
 				commandcheck = 1;
 				mp -= 8;
@@ -170,7 +175,8 @@ public class MouceDrugScript : MonoBehaviour {
 			float dis = Vector3.Distance (playerPos, enemyPos);
 			if (dis <= 4f) {
 				enemy.GetComponent<EnemyMoveScript> ().Damage (Random.Range (15, 18),3);
-				skillbuttons.SetActive (false);
+				skillbutton1.SetActive (false);
+				skillbutton2.SetActive (false);
 				buttonPopUpCheck = 0;
 				commandcheck = 1;
 				mp -= 5;
