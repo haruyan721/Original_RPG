@@ -34,8 +34,7 @@ public class PlayerAttacker : MonoBehaviour {
 		
 		if (turnManager.playerTurnNum == turnManager.turncount) {
 			
-			float dis = Vector3.Distance (playermover.movingPos, enemymover.myPos); //プレイヤーと敵の距離を取得
-			Debug.Log("dis");
+			float dis = Vector3.Distance (playermover.movingPos, enemymover.enemyPos); //プレイヤーと敵の距離を取得
 
 			if (dis <= 3f) {
 				

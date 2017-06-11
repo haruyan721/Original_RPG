@@ -1463,6 +1463,8 @@ GameObject:
   - component: {fileID: 818504891}
   - component: {fileID: 818504896}
   - component: {fileID: 818504895}
+  - component: {fileID: 818504898}
+  - component: {fileID: 818504897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1571,6 +1573,34 @@ MonoBehaviour:
   nextbutton: {fileID: 1602312903}
   skillbutton1: {fileID: 849270538}
   skillbutton2: {fileID: 1306212606}
+--- !u!114 &818504897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 10
+  playerPower: 10
+  playerHp: 100
+  playerDefense: 10
+--- !u!114 &818504898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b547a8cecaa4a3cbd77857961c7e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnManager: {fileID: 0}
+  movingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,6 +3000,9 @@ GameObject:
   - component: {fileID: 1512910711}
   - component: {fileID: 1512910715}
   - component: {fileID: 1512910716}
+  - component: {fileID: 1512910718}
+  - component: {fileID: 1512910717}
+  - component: {fileID: 1512910719}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3072,6 +3105,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &1512910717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512910710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6918d648f6c48018b4e693ba819408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 20
+  enemyPower: 8
+  enemyHp: 100
+--- !u!114 &1512910718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512910710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717e60e08c9654e6c9c2a158231adfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPos: {x: 0, y: 0, z: 0}
+  attackcheck: 0
+  movecheck: 0
+  turnManager: {fileID: 0}
+--- !u!114 &1512910719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512910710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a7b588c7cdf4414bc8c07bead11fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnManager: {fileID: 0}
+  playermover: {fileID: 0}
+  enemyMover: {fileID: 0}
 --- !u!1 &1602312903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,6 +3521,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1780781007}
+  - component: {fileID: 1780781006}
   m_Layer: 0
   m_Name: TurnManagement
   m_TagString: Untagged
@@ -3452,6 +3529,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1780781006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780781005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0c8182736574bafa332e091ebf527e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turncount: 1
+  playerTurnNum: 0
+  enemyTurnNum: 0
+  menber: 2
 --- !u!4 &1780781007
 Transform:
   m_ObjectHideFlags: 0

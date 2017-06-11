@@ -15,20 +15,20 @@ public class TurnManager : MonoBehaviour {
 	void Awake (){
 		
 		player = GameObject.Find ("Player"); //プレイヤーを取得
-		PlayerStatus playerStatus = player.GetComponent<PlayerStatus> (); //ステータスから素早さを取得
+		PlayerStatus playerStatus = player.GetComponent<PlayerStatus> (); //プレイヤーのステータスから素早さを取得
 		playerSpeedCheck = playerStatus.playerSpeed; //素早さを代入
 		enemy = GameObject.Find("Enemy"); //敵を取得
-		EnemyStatus enemyStatus = enemy.GetComponent<EnemyStatus> (); //ステータスから素早さを以下略
+		EnemyStatus enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
 
 		if (playerSpeedCheck >= enemySpeedCheck) { //どちらが先に動くかの処理
 			
-			playerTurnNum = 1;
+			playerTurnNum = 1; //ターン順の決定
 			enemyTurnNum = 2;
 
 		} else {
 			
-			playerTurnNum = 2;
+			playerTurnNum = 2; //ターン順の決定
 			enemyTurnNum = 1;
 
 		}
