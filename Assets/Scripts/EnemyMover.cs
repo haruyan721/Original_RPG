@@ -34,8 +34,10 @@ public class EnemyMover : MonoBehaviour {
 
 		enemyPos = this.transform.position; //敵の位置を取得
 
-		if (enemyComandcheck == 1 && enemyMovecheck == 1) {
+		if (enemyComandcheck == 1 && enemyMovecheck == 1 && turnManager.turncount == turnManager.enemyTurnNum) {
 			turnManager.Next ();
+			enemyComandcheck = 0;
+			enemyMovecheck = 0;
 		}
 	}
 }

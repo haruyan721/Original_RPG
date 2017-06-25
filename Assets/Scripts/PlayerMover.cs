@@ -12,8 +12,7 @@ public class PlayerMover : MonoBehaviour {
 	public Vector3 movingPos; //移動した後の座標
 	Vector3 originalPos; //初期位置の座標
 	bool originalPoscheck; //初期位置を取得したかの判定
-	int playermovecheck = 0;
-	int playercomandcheck = 0;
+	public int playercomandcheck = 0;
 
 	void Start () {
 		
@@ -38,11 +37,12 @@ public class PlayerMover : MonoBehaviour {
 		if (originalDis >= 6f) {
 			transform.position = originalPos;
 		}
+
 	}
 
 	void OnMouseDown(){ //プレイヤーをマウスで動かす処理（１）
 		
-		if (turnManager.playerTurnNum == turnManager.turncount) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playercomandcheck == 0) {
 			
 			_rigidbody.constraints = RigidbodyConstraints.None;
 			_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -57,7 +57,7 @@ public class PlayerMover : MonoBehaviour {
 
 	void OnMouseDrag(){ //プレイヤーをマウスで動かす処理（２）
 		
-		if (turnManager.playerTurnNum == turnManager.turncount) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playercomandcheck == 0) {
 			
 			_rigidbody.constraints = RigidbodyConstraints.None;
 			_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -68,6 +68,11 @@ public class PlayerMover : MonoBehaviour {
 
 		}
 
+	}
+
+	public void resetNext(){
+		turnManager.Next ();
+		playercomandcheck = 0;
 	}
 
 }

@@ -41,6 +41,7 @@ public class PlayerAttacker : MonoBehaviour {
 			if (dis <= 3f) {
 				int damage = playerstatus.playerPower + Random.Range (0, 4);
 				enemyHpbarManagement.EnemyDamage (damage);
+				playermover.playercomandcheck = 1;
 			}
 
 		}
