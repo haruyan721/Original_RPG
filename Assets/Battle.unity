@@ -700,7 +700,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 818504896}
+      - m_Target: {fileID: 818504901}
         m_MethodName: Attack
         m_Mode: 1
         m_Arguments:
@@ -1465,6 +1465,9 @@ GameObject:
   - component: {fileID: 818504895}
   - component: {fileID: 818504898}
   - component: {fileID: 818504897}
+  - component: {fileID: 818504899}
+  - component: {fileID: 818504900}
+  - component: {fileID: 818504901}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1559,7 +1562,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818504890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7820999577c204cb38484e7b38800632, type: 3}
   m_Name: 
@@ -1579,7 +1582,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818504890}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
   m_Name: 
@@ -1587,6 +1590,7 @@ MonoBehaviour:
   playerSpeed: 10
   playerPower: 10
   playerHp: 100
+  playerMp: 30
   playerDefense: 10
 --- !u!114 &818504898
 MonoBehaviour:
@@ -1594,13 +1598,48 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818504890}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b547a8cecaa4a3cbd77857961c7e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turnManager: {fileID: 0}
   movingPos: {x: 0, y: 0, z: 0}
+--- !u!114 &818504899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc7c9de1b7544ce9fafdece77a1657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &818504900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40345c26724974db78e4569e722cf0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &818504901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c26781973c74978a6c6de5737694ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 0}
+  turnManager: {fileID: 0}
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,6 +3042,7 @@ GameObject:
   - component: {fileID: 1512910718}
   - component: {fileID: 1512910717}
   - component: {fileID: 1512910719}
+  - component: {fileID: 1512910720}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3081,7 +3121,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512910710}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cdb662be6a1e4ebd852119a6aecf82b, type: 3}
   m_Name: 
@@ -3111,7 +3151,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512910710}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d6918d648f6c48018b4e693ba819408, type: 3}
   m_Name: 
@@ -3125,14 +3165,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512910710}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 717e60e08c9654e6c9c2a158231adfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyComandcheck: 0
   enemyPos: {x: 0, y: 0, z: 0}
-  attackcheck: 0
-  movecheck: 0
+  enemyMovecheck: 0
   turnManager: {fileID: 0}
 --- !u!114 &1512910719
 MonoBehaviour:
@@ -3140,7 +3180,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512910710}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78a7b588c7cdf4414bc8c07bead11fec, type: 3}
   m_Name: 
@@ -3148,6 +3188,18 @@ MonoBehaviour:
   turnManager: {fileID: 0}
   playermover: {fileID: 0}
   enemyMover: {fileID: 0}
+--- !u!114 &1512910720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512910710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7290ce5797e4ac2b570976d39d2a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStatus: {fileID: 0}
 --- !u!1 &1602312903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,7 +3927,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 35
+  m_MaxValue: 30
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:

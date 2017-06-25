@@ -6,26 +6,38 @@ public class PlayerMover : MonoBehaviour {
 	private Rigidbody _rigidbody;
 	private Vector3 _screenPoint; //マウス移動用の変数（１）
 	private Vector3 _offset; //マウス移動用の変数（２）
-	bool originalCheck; //初期位置を取得したかの判定
 	float originalDis; //初期位置と移動した時の位置との距離を測る
 	GameObject turnManagement; //ターンを管理するオブジェクト
 	public TurnManager turnManager; //TurnManagerを入れる用
 	public Vector3 movingPos; //移動した後の座標
 	Vector3 originalPos; //初期位置の座標
+	bool originalPoscheck; //初期位置を取得したかの判定
+	int playermovecheck = 0;
+	int playercomandcheck = 0;
 
 	void Start () {
 		
 		turnManagement = GameObject.Find ("TurnManagement"); //ターン用のオブジェクトを取得
 		turnManager = turnManagement.GetComponent<TurnManager> (); //turnManagerにTurnManagerを代入
 		_rigidbody = GetComponent<Rigidbody> ();
+		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
 	}
 
 
 	void Update () {
-		
+
 		movingPos = this.transform.position; //自分の現在の座標を取得
 
+		if (originalPoscheck == false) {
+			originalPos = this.transform.position;
+			originalPoscheck = true;
+		}
+
+		originalDis = Vector3.Distance (originalPos, movingPos);
+		if (originalDis >= 6f) {
+			transform.position = originalPos;
+		}
 	}
 
 	void OnMouseDown(){ //プレイヤーをマウスで動かす処理（１）
