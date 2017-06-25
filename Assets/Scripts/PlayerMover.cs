@@ -6,13 +6,15 @@ public class PlayerMover : MonoBehaviour {
 	private Rigidbody _rigidbody;
 	private Vector3 _screenPoint; //マウス移動用の変数（１）
 	private Vector3 _offset; //マウス移動用の変数（２）
+	private Renderer _rangerend; //移動範囲の可視化用
 	float originalDis; //初期位置と移動した時の位置との距離を測る
 	GameObject turnManagement; //ターンを管理するオブジェクト
+	GameObject moveRange; //移動範囲
+	Vector3 originalPos; //初期位置の座標
 	public TurnManager turnManager; //TurnManagerを入れる用
 	public Vector3 movingPos; //移動した後の座標
-	Vector3 originalPos; //初期位置の座標
+	public int playercomandcheck = 0; //行動したかの判定
 	bool originalPoscheck; //初期位置を取得したかの判定
-	public int playercomandcheck = 0;
 
 	void Start () {
 		
@@ -20,6 +22,9 @@ public class PlayerMover : MonoBehaviour {
 		turnManager = turnManagement.GetComponent<TurnManager> (); //turnManagerにTurnManagerを代入
 		_rigidbody = GetComponent<Rigidbody> ();
 		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		moveRange = GameObject.Find ("sarcle");
+		_rangerend = moveRange.GetComponent<Renderer> ();
+		_rangerend.enabled = false;
 
 	}
 
@@ -28,14 +33,18 @@ public class PlayerMover : MonoBehaviour {
 
 		movingPos = this.transform.position; //自分の現在の座標を取得
 
-		if (originalPoscheck == false) {
+		if (originalPoscheck == false && turnManager.turncount == turnManager.playerTurnNum) {
+			Debug.Log("ok");
 			originalPos = this.transform.position;
 			originalPoscheck = true;
+			_rangerend.enabled = true;
 		}
+		moveRange.transform.position = originalPos;
 
 		originalDis = Vector3.Distance (originalPos, movingPos);
 		if (originalDis >= 6f) {
 			transform.position = originalPos;
+			moveRange.transform.position = originalPos;
 		}
 
 	}
@@ -72,7 +81,10 @@ public class PlayerMover : MonoBehaviour {
 
 	public void resetNext(){
 		turnManager.Next ();
+		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		playercomandcheck = 0;
+		originalPoscheck = false;
+		_rangerend.enabled = false;
 	}
 
 }

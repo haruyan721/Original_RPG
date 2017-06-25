@@ -42,11 +42,9 @@ public class TurnManager : MonoBehaviour {
 
 
 	void Update () {
-		//Debug.Log (turncount);
 	}
 
 	public void Next(){
-		Debug.Log ("ok");
 		if (turncount == menber) {
 			
 			turncount = 1;
