@@ -20,8 +20,5 @@ public class EnemyHPbarManagement : MonoBehaviour {
 	void Update () {
 		_enemyHpDraw.value = enemyStatus.enemyHp;
 	}
-
-	public void EnemyDamage(int damage){
-		enemyStatus.enemyHp -= damage;
-	}
+		
 }

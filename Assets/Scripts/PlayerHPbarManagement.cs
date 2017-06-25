@@ -20,8 +20,5 @@ public class PlayerHPbarManagement : MonoBehaviour {
 	void Update () {
 		_playerHpDraw.value = playerStatus.playerHp;
 	}
-
-	public void HPDamage(int Damage){
-		playerStatus.playerHp -= Damage;
-	}
+		
 }

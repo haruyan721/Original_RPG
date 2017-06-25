@@ -34,7 +34,6 @@ public class PlayerMover : MonoBehaviour {
 		movingPos = this.transform.position; //自分の現在の座標を取得
 
 		if (originalPoscheck == false && turnManager.turncount == turnManager.playerTurnNum) {
-			Debug.Log("ok");
 			originalPos = this.transform.position;
 			originalPoscheck = true;
 			_rangerend.enabled = true;

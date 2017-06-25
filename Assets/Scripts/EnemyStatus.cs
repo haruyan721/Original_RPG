@@ -13,6 +13,12 @@ public class EnemyStatus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (enemyHp <= 0) {
+			Destroy (this.gameObject);
+		}
+	}
 
+	public void EnemyDamage(int damage){
+		enemyHp -= damage;
 	}
 }

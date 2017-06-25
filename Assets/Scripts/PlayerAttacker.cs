@@ -11,7 +11,6 @@ public class PlayerAttacker : MonoBehaviour {
 	EnemyMover enemymover;
 	EnemyStatus enemyStatus;
 	GameObject turnManagement; //ターンを管理するオブジェクト
-	EnemyHPbarManagement enemyHpbarManagement;
 	public TurnManager turnManager; //TurnManagerを入れる用
 
 	void Start () {
@@ -22,7 +21,6 @@ public class PlayerAttacker : MonoBehaviour {
 		enemy = GameObject.Find ("Enemy");
 		enemymover = enemy.GetComponent<EnemyMover> (); //敵の場所を記したスクリプトを取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスを取得
-		enemyHpbarManagement = enemy.GetComponent<EnemyHPbarManagement>();
 		turnManagement = GameObject.Find ("TurnManagement"); //ターン用のオブジェクトを取得
 		turnManager = turnManagement.GetComponent<TurnManager> (); //turnManagerにTurnManagerを代入
 
@@ -34,13 +32,14 @@ public class PlayerAttacker : MonoBehaviour {
 
 	public void Attack(){
 		
-		if (turnManager.playerTurnNum == turnManager.turncount) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
 			
 			float dis = Vector3.Distance (playermover.movingPos, enemymover.enemyPos); //プレイヤーと敵の距離を取得
 
 			if (dis <= 3f) {
 				int damage = playerstatus.playerPower + Random.Range (0, 4);
-				enemyHpbarManagement.EnemyDamage (damage);
+				enemyStatus.EnemyDamage (damage);
+				Instantiate (hitEffect, enemy.transform.position, enemy.transform.rotation);
 				playermover.playercomandcheck = 1;
 			}
 

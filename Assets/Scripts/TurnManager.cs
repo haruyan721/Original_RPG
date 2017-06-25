@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour {
 	
@@ -11,7 +12,8 @@ public class TurnManager : MonoBehaviour {
 	int enemySpeedCheck = 0; //敵のスピードを取得
 	GameObject player;
 	GameObject enemy;
-
+	public Text turnWindow;
+	string turnText;
 	void Awake (){
 		
 		player = GameObject.Find ("Player"); //プレイヤーを取得
@@ -25,11 +27,15 @@ public class TurnManager : MonoBehaviour {
 			
 			playerTurnNum = 1; //ターン順の決定
 			enemyTurnNum = 2;
+			turnText = "your turn"; 
+			turnWindow.text = turnText;
 
 		} else {
 			
 			playerTurnNum = 2; //ターン順の決定
 			enemyTurnNum = 1;
+			turnText = "enemy turn"; 
+			turnWindow.text = turnText;
 
 		}
 
@@ -42,11 +48,13 @@ public class TurnManager : MonoBehaviour {
 
 
 	void Update () {
+		
 	}
 
 	public void Next(){
+		
 		if (turncount == menber) {
-			
+
 			turncount = 1;
 
 		} else {
@@ -55,5 +63,11 @@ public class TurnManager : MonoBehaviour {
 
 		}
 
+		if (turncount == playerTurnNum) {
+			turnText = "your turn"; 
+		} else {
+			turnText = "enemy turn"; 
+		}
+		turnWindow.text = turnText;
 	}
 }

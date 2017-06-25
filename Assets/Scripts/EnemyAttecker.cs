@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyAttecker : MonoBehaviour {
 	
 	private Rigidbody _rigidbody;
-	PlayerHPbarManagement playerHPbarManagement;
+	PlayerStatus playerStatus;
 	EnemyStatus enemyStatus;
 	GameObject player;
 	GameObject turnManagement;
 	public TurnManager turnManager;
 	public PlayerMover playermover;
 	public EnemyMover enemyMover;
+	public GameObject hitEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class EnemyAttecker : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
 		playermover = player.GetComponent<PlayerMover> ();
-		playerHPbarManagement = player.GetComponent<PlayerHPbarManagement> ();
+		playerStatus = player.GetComponent<PlayerStatus> ();
 		enemyMover = GetComponent<EnemyMover> ();
 		enemyStatus = GetComponent<EnemyStatus> ();
 		_rigidbody = GetComponent<Rigidbody> ();
@@ -34,7 +35,8 @@ public class EnemyAttecker : MonoBehaviour {
 			float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
 			if(dis <= 3f && enemyMover.enemyComandcheck == 0){
 				int damage = enemyStatus.enemyPower + Random.Range (0, 4);
-				playerHPbarManagement.HPDamage (damage);
+				Instantiate (hitEffect, player.transform.position, player.transform.rotation);
+				playerStatus.HPDamage (damage);
 			}
 			enemyMover.enemyComandcheck++;
 		}
