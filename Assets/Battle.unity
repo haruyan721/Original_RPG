@@ -1469,6 +1469,8 @@ GameObject:
   - component: {fileID: 818504900}
   - component: {fileID: 818504901}
   - component: {fileID: 818504902}
+  - component: {fileID: 818504904}
+  - component: {fileID: 818504903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1653,6 +1655,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f88a9a53ebd4f5d92ae3a17f6a63fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &818504903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91652f870c4f4b3a85c88411b062fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameEffect: {fileID: 100004, guid: 690a2732e93a84b5c80b2d383c16893a, type: 2}
+--- !u!114 &818504904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b565fc72cf4a64c6c9474304515751b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillNum: 0
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,8 +1755,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 818504896}
-        m_MethodName: Skill1
+      - m_Target: {fileID: 818504904}
+        m_MethodName: SkillButton1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

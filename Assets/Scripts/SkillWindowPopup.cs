@@ -9,6 +9,7 @@ public class SkillWindowPopup : MonoBehaviour {
 	GameObject skillButton2;
 	GameObject nextButton;
 	TurnManager turnManager;
+	PlayerMover playerMover;
 	int popUpcheck;
 
 	// Use this for initialization
@@ -18,6 +19,7 @@ public class SkillWindowPopup : MonoBehaviour {
 		nextButton = GameObject.Find ("Next");
 		turnManagement = GameObject.Find ("TurnManagement");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
+		playerMover = GetComponent<PlayerMover> ();
 		skillButton1.SetActive (false);
 		skillButton2.SetActive (false);
 	}
@@ -28,12 +30,12 @@ public class SkillWindowPopup : MonoBehaviour {
 	}
 
 	public void PopUpDown (){
-		if (popUpcheck == 0 && turnManager.turncount == turnManager.playerTurnNum) {
+		if (popUpcheck == 0 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
 			skillButton1.SetActive (true);
 			skillButton2.SetActive (true);
 			nextButton.SetActive (false);
 			popUpcheck++;
-		} else if (popUpcheck == 1 && turnManager.turncount == turnManager.playerTurnNum){
+		} else if (popUpcheck == 1 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0){
 			skillButton1.SetActive (false);
 			skillButton2.SetActive (false);
 			nextButton.SetActive (true);
