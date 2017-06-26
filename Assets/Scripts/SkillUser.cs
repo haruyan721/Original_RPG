@@ -25,9 +25,15 @@ public class SkillUser : MonoBehaviour {
 
 	public void SkillButton1(){
 		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
-			skillManager.Flame ();
 			skillWindowPopup.PopUpDown ();
-			playermover.playercomandcheck = 1;
+			skillManager.Flame ();
+		}
+	}
+
+	public void SkillButton2(){
+		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
+			skillWindowPopup.PopUpDown ();
+			skillManager.Wind ();
 		}
 	}
 }

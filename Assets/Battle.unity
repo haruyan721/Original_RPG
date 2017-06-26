@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 818504896}
+      - m_Target: {fileID: 0}
         m_MethodName: Block
         m_Mode: 1
         m_Arguments:
@@ -1461,7 +1461,6 @@ GameObject:
   - component: {fileID: 818504893}
   - component: {fileID: 818504892}
   - component: {fileID: 818504891}
-  - component: {fileID: 818504896}
   - component: {fileID: 818504895}
   - component: {fileID: 818504898}
   - component: {fileID: 818504897}
@@ -1559,26 +1558,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &818504896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 818504890}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7820999577c204cb38484e7b38800632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonPopUpCheck: 0
-  turncheck: 0
-  guardDamage: 0
-  turnwindow: {fileID: 485700074}
-  hitEfect: {fileID: 100002, guid: 98f977e4c19aa4c9a854ffbb6e3d9a4f, type: 2}
-  enemy: {fileID: 1512910710}
-  nextbutton: {fileID: 1602312903}
-  skillbutton1: {fileID: 849270538}
-  skillbutton2: {fileID: 1306212606}
 --- !u!114 &818504897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,6 +1646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameEffect: {fileID: 100004, guid: 690a2732e93a84b5c80b2d383c16893a, type: 2}
+  windEffect: {fileID: 100000, guid: 5d8f9f93426caba42aa910ad4ff23429, type: 2}
 --- !u!114 &818504904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2610,8 +2590,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 818504896}
-        m_MethodName: Skill2
+      - m_Target: {fileID: 818504904}
+        m_MethodName: SkillButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3092,7 +3072,6 @@ GameObject:
   - component: {fileID: 1512910713}
   - component: {fileID: 1512910712}
   - component: {fileID: 1512910711}
-  - component: {fileID: 1512910715}
   - component: {fileID: 1512910716}
   - component: {fileID: 1512910718}
   - component: {fileID: 1512910717}
@@ -3170,21 +3149,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1512910715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1512910710}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cdb662be6a1e4ebd852119a6aecf82b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 100002, guid: 98f977e4c19aa4c9a854ffbb6e3d9a4f, type: 2}
-  fireEffect: {fileID: 100004, guid: 690a2732e93a84b5c80b2d383c16893a, type: 2}
-  windEffect: {fileID: 100000, guid: 5d8f9f93426caba42aa910ad4ff23429, type: 2}
-  enemyturncheck: 0
 --- !u!54 &1512910716
 Rigidbody:
   m_ObjectHideFlags: 0

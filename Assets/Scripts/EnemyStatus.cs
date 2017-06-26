@@ -19,6 +19,7 @@ public class EnemyStatus : MonoBehaviour {
 	}
 
 	public void EnemyDamage(int damage){
+		Debug.Log ("ok");
 		enemyHp -= damage;
 	}
 }
