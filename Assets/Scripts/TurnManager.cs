@@ -7,13 +7,18 @@ public class TurnManager : MonoBehaviour {
 	public int turncount = 1; //ターン番号
 	public int playerTurnNum; //プレイヤーのターン順
 	public int enemyTurnNum; //敵のターン順
-	public int menber = 2;
+	GameObject [] enemys;
+	GameObject [] players;
+	public int playerMenber;
+	public int enemyMenber;
+	public int allMenber = 2;
 	int playerSpeedCheck = 0; //プレイヤーのスピードを取得
 	int enemySpeedCheck = 0; //敵のスピードを取得
 	GameObject player;
 	GameObject enemy;
 	public Text turnWindow;
 	string turnText;
+
 	void Awake (){
 		
 		player = GameObject.Find ("Player"); //プレイヤーを取得
@@ -22,6 +27,7 @@ public class TurnManager : MonoBehaviour {
 		enemy = GameObject.Find("Enemy"); //敵を取得
 		EnemyStatus enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
+
 
 		if (playerSpeedCheck >= enemySpeedCheck) { //どちらが先に動くかの処理
 			
@@ -53,7 +59,7 @@ public class TurnManager : MonoBehaviour {
 
 	public void Next(){
 		
-		if (turncount == menber) {
+		if (turncount == allMenber) {
 
 			turncount = 1;
 
@@ -69,5 +75,16 @@ public class TurnManager : MonoBehaviour {
 			turnText = "enemy turn"; 
 		}
 		turnWindow.text = turnText;
+
+	}
+
+
+
+	void MenberCheck(){
+		players = GameObject.FindGameObjectsWithTag("player");
+		playerMenber = players.Length;
+		enemys = GameObject.FindGameObjectsWithTag ("Enemy");
+		enemyMenber = enemys.Length;
+		allMenber = playerMenber + enemyMenber;
 	}
 }

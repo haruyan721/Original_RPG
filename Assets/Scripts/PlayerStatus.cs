@@ -8,6 +8,7 @@ public class PlayerStatus : MonoBehaviour {
 	public int playerHp = 100; //HP
 	public int playerMp = 30; //MP
 	public int playerDefense =10; //防御力
+	public int Exp = 0; //経験値
 
 	void Start () {
 	

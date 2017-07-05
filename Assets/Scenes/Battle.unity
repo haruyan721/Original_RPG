@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -86,7 +86,8 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 5346bc6353819402d9a4edc458fc8401,
+    type: 2}
   m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
@@ -604,7 +605,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -1574,6 +1575,7 @@ MonoBehaviour:
   playerHp: 100
   playerMp: 30
   playerDefense: 10
+  Exp: 0
 --- !u!114 &818504898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,6 +1853,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!54 &890137416
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3615,6 +3618,8 @@ MonoBehaviour:
   turncount: 1
   playerTurnNum: 0
   enemyTurnNum: 0
+  playerMenber: 0
+  enemyMenber: 0
   menber: 2
   turnWindow: {fileID: 485700074}
 --- !u!4 &1780781007
