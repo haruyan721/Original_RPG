@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldParameters : MonoBehaviour {
-
-	public Vector3 playerPos;
+public class FieldEnemyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (this);
+		transform.position = new Vector3 (Random.Range (-10, 11), 0.725f, Random.Range (-10, 11));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-
 }

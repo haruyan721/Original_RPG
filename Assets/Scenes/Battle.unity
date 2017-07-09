@@ -1575,7 +1575,8 @@ MonoBehaviour:
   playerHp: 100
   playerMp: 30
   playerDefense: 10
-  Exp: 0
+  exp: 0
+  gold: 0
 --- !u!114 &818504898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,7 +3180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 20
-  enemyPower: 8
+  enemyPower: 6
   enemyHp: 100
 --- !u!114 &1512910718
 MonoBehaviour:
@@ -3620,8 +3621,8 @@ MonoBehaviour:
   enemyTurnNum: 0
   playerMenber: 0
   enemyMenber: 0
-  menber: 2
-  turnWindow: {fileID: 485700074}
+  allMenber: 2
+  textWindow: {fileID: 485700074}
 --- !u!4 &1780781007
 Transform:
   m_ObjectHideFlags: 0

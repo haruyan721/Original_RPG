@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerFieldMoveScript : MonoBehaviour {
 
+	public static Vector3 mypos = new Vector3(0,0.725f,0);
+	public static GameObject battleEnemy = null;
 	int moveSpeed = 15;
-	PlayerModeScript playerModeScript;
 
 
 	// Use this for initialization
+
+	void Awake(){
+		
+		transform.position = mypos;
+
+	}
+
+
 	void Start () {
-		//DontDestroyOnLoad (transform.gameObject);
 
 	}
 	
@@ -33,5 +42,14 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 			transform.position += new Vector3(moveSpeed,0,0) * Time.deltaTime;
 		}
 
+	}
+
+	void OnTriggerEnter(Collider col){
+		if (col.gameObject.tag == "Enemy") {
+			mypos = this.transform.position;
+			battleEnemy = col.gameObject;
+
+			SceneManager.LoadScene ("Battle");
+		}
 	}
 }
