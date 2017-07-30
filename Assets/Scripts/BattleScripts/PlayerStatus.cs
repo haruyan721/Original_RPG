@@ -15,8 +15,18 @@ public class PlayerStatus : MonoBehaviour {
 	static public int expTank = 0;
 	static public int goldTank = 0;
 
+	void Awake(){
+		if (PlayerPrefs.GetInt ("saveCheck") == 1 && PlayerFieldMoveScript.sceneStart == 0) {
+			playerHpTank = PlayerPrefs.GetInt ("hpSaveDate");
+			playerMpTank = PlayerPrefs.GetInt ("mpSaveDate");
+			expTank = PlayerPrefs.GetInt ("expSaveDate");
+			goldTank = PlayerPrefs.GetInt ("goldSaveDate");
+			StatusStorageExport ();
+		}
+	}
+
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame

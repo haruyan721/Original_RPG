@@ -9,6 +9,7 @@ public class PlayerHPbarManagement : MonoBehaviour {
 	GameObject playerHpBar;
 	private Slider _playerHpDraw;
 
+
 	// Use this for initialization
 	void Start () {
 		playerHpBar = GameObject.Find ("HP");

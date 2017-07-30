@@ -8,19 +8,22 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	public static Vector3 mypos = new Vector3(0,0.725f,0);
 	public static GameObject battleEnemy = null;
 	int moveSpeed = 15;
+	public static int sceneStart = 0;
 
 
 	// Use this for initialization
 
 	void Awake(){
-		
+		if (PlayerPrefs.GetInt ("saveCheck") == 1 && sceneStart == 0) {
+			mypos = new Vector3(PlayerPrefs.GetFloat("player_XPosSaveDate"),0.725f,PlayerPrefs.GetFloat("player_ZPosSaveDate"));
+		}
 		transform.position = mypos;
 
 	}
 
 
 	void Start () {
-
+		sceneStart = 1;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +44,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		if (Input.GetKey (KeyCode.D)) {
 			transform.position += new Vector3(moveSpeed,0,0) * Time.deltaTime;
 		}
+
 
 	}
 
