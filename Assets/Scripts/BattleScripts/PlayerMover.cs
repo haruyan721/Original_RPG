@@ -50,12 +50,12 @@ public class PlayerMover : MonoBehaviour {
 
 	void OnMouseDown(){ //プレイヤーをマウスで動かす処理（１）
 		
-		if (turnManager.playerTurnNum == turnManager.turncount && playercomandcheck == 0) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playercomandcheck == 0 ) {
 			
 			_rigidbody.constraints = RigidbodyConstraints.None;
 			_rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 			_rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-			Vector3 currentScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, _screenPoint.z);
+			//Vector3 currentScreenPoint = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, _screenPoint.z);
 			this._screenPoint = Camera.main.WorldToScreenPoint (transform.position);
 			this._offset = transform.position - Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, _screenPoint.z));
 
