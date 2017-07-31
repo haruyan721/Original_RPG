@@ -22,6 +22,8 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("saveCheck", 1);
 		PlayerPrefs.SetInt ("hpSaveDate", PlayerStatus.playerHpTank);
 		PlayerPrefs.SetInt ("mpSaveDate", PlayerStatus.playerMpTank);
+		PlayerPrefs.SetInt ("maxHpSavedate", PlayerStatus.maxPlayerHp);
+		PlayerPrefs.SetInt ("maxMpSavedate", PlayerStatus.maxPlayerMp);
 		PlayerPrefs.SetInt ("expSaveDate", PlayerStatus.expTank);
 		PlayerPrefs.SetInt ("goldSaveDate", PlayerStatus.goldTank);
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);

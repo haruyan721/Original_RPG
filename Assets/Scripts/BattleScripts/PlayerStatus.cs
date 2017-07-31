@@ -7,6 +7,8 @@ public class PlayerStatus : MonoBehaviour {
     public int playerPower = 15; //攻撃力
 	public int playerHp = 100; //HP
 	public int playerMp = 30; //MP
+	public static int maxPlayerHp = 100; //最大HP
+	public static int maxPlayerMp = 30; //最大MP
 	public int playerDefense =10; //防御力
 	public int exp = 0; //経験値
 	public int gold = 0; //お金
@@ -21,6 +23,8 @@ public class PlayerStatus : MonoBehaviour {
 			playerMpTank = PlayerPrefs.GetInt ("mpSaveDate");
 			expTank = PlayerPrefs.GetInt ("expSaveDate");
 			goldTank = PlayerPrefs.GetInt ("goldSaveDate");
+			maxPlayerHp = PlayerPrefs.GetInt ("maxHpSaveDate");
+			maxPlayerMp = PlayerPrefs.GetInt ("maxMpSaveDate");
 			StatusStorageExport ();
 		}
 	}
