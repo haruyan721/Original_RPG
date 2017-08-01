@@ -19,6 +19,7 @@ public class CheckScript : MonoBehaviour {
 		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P)) {
 			PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;
 			PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;
+			Debug.Log ("Rest");
 		}
 	}
 }

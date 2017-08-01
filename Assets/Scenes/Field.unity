@@ -396,8 +396,8 @@ GameObject:
   m_Component:
   - component: {fileID: 854890788}
   - component: {fileID: 854890787}
-  - component: {fileID: 854890786}
   - component: {fileID: 854890785}
+  - component: {fileID: 854890786}
   m_Layer: 0
   m_Name: RestNPC
   m_TagString: Rest
@@ -437,8 +437,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &854890786
-SphereCollider:
+--- !u!65 &854890786
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -447,7 +447,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &854890787
 MeshFilter:
@@ -889,13 +889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerPower: 10
-  playerHp: 100
-  playerMp: 30
-  playerDefense: 10
-  exp: 0
-  gold: 0
 --- !u!54 &1906712950
 Rigidbody:
   m_ObjectHideFlags: 0

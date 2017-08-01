@@ -60,11 +60,13 @@ public class TurnManager : MonoBehaviour {
 
 
 	void Update () {
-		if (enemyMenber == 0) {
+		if (enemyMenber == 0 && battleEndCheck == 0) {
 			battleText = "You Win!!";
 			battleEndCheck = 1;
 			//playerStatus.BattleBonusGet ();
 			textWindow.text = battleText;
+			PlayerStatus.exp += 25;
+			PlayerStatus.gold += 12;
 			Invoke ("FieldBack", 2);
 		}
 
