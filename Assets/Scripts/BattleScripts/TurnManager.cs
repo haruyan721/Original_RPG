@@ -20,19 +20,17 @@ public class TurnManager : MonoBehaviour {
 	string battleText;
 	GameObject player;
 	GameObject enemy;
-	PlayerStatus playerStatus;
 	EnemyStatus enemyStatus;
 
 
 	void Awake (){
 		
 		player = GameObject.Find ("Player"); //プレイヤーを取得
-		playerStatus = player.GetComponent<PlayerStatus> (); //プレイヤーのステータスから素早さを取得
-		playerSpeedCheck = playerStatus.playerSpeed; //素早さを代入
+		playerSpeedCheck = PlayerStatus.playerSpeed; //素早さを代入
 		enemy = GameObject.Find("Enemy"); //敵を取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
-		playerStatus.StatusStorageExport ();
+		//playerStatus.StatusStorageExport ();
 		//transActionScript = dates.GetComponent<TransActionScript> ();
 		MenberCheck();
 
@@ -65,7 +63,7 @@ public class TurnManager : MonoBehaviour {
 		if (enemyMenber == 0) {
 			battleText = "You Win!!";
 			battleEndCheck = 1;
-			playerStatus.BattleBonusGet ();
+			//playerStatus.BattleBonusGet ();
 			textWindow.text = battleText;
 			Invoke ("FieldBack", 2);
 		}
@@ -98,7 +96,7 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	void FieldBack(){
-		playerStatus.StatusStorageInport ();
+		//playerStatus.StatusStorageInport ();
 		SceneManager.LoadScene ("Field");
 	}
 		

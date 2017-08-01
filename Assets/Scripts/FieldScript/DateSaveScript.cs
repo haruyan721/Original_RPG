@@ -20,16 +20,17 @@ public class DateSaveScript : MonoBehaviour {
 	public void Save(){
 		Debug.Log ("ok");
 		PlayerPrefs.SetInt ("saveCheck", 1);
-		PlayerPrefs.SetInt ("hpSaveDate", PlayerStatus.playerHpTank);
-		PlayerPrefs.SetInt ("mpSaveDate", PlayerStatus.playerMpTank);
-		PlayerPrefs.SetInt ("maxHpSavedate", PlayerStatus.maxPlayerHp);
-		PlayerPrefs.SetInt ("maxMpSavedate", PlayerStatus.maxPlayerMp);
-		PlayerPrefs.SetInt ("expSaveDate", PlayerStatus.expTank);
-		PlayerPrefs.SetInt ("goldSaveDate", PlayerStatus.goldTank);
+		PlayerPrefs.SetInt ("hpSaveDate", PlayerStatus.playerHp);
+		PlayerPrefs.SetInt ("mpSaveDate", PlayerStatus.playerMp);
+		PlayerPrefs.SetInt ("maxHpSaveDate", PlayerStatus.maxPlayerHp);
+		PlayerPrefs.SetInt ("maxMpSaveDate", PlayerStatus.maxPlayerMp);
+		PlayerPrefs.SetInt ("powerSaveDate", PlayerStatus.playerPower);
+		PlayerPrefs.SetInt ("defenseSaveDate", PlayerStatus.playerDefense);
+		PlayerPrefs.SetInt ("speedSaveDate", PlayerStatus.playerSpeed);
+		PlayerPrefs.SetInt ("expSaveDate", PlayerStatus.exp);
+		PlayerPrefs.SetInt ("goldSaveDate", PlayerStatus.gold);
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
-		Debug.Log (PlayerPrefs.GetFloat ("player_XPosSaveDate"));
-		Debug.Log (PlayerPrefs.GetFloat ("player_ZPosSaveDate"));
 
 	}
 }

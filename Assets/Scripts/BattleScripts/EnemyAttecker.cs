@@ -36,6 +36,8 @@ public class EnemyAttecker : MonoBehaviour {
 			if(dis <= 3f && enemyMover.enemyComandcheck == 0){
 				int damage = enemyStatus.enemyPower + Random.Range (0, 4);
 				Instantiate (hitEffect, player.transform.position, player.transform.rotation);
+				Debug.Log (damage);
+				Debug.Log (PlayerStatus.playerHp);
 				playerStatus.HPDamage (damage);
 			}
 			enemyMover.enemyComandcheck++;

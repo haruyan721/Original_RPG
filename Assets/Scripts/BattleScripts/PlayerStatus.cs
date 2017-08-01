@@ -3,29 +3,32 @@ using System.Collections;
 
 public class PlayerStatus : MonoBehaviour {
 	
-	public int playerSpeed = 10; //素早さ
-    public int playerPower = 15; //攻撃力
-	public int playerHp = 100; //HP
-	public int playerMp = 30; //MP
+	public static int playerSpeed = 10; //素早さ
+	public static int playerPower = 15; //攻撃力
+	public static int playerHp = 100; //HP
+	public static int playerMp = 30; //MP
 	public static int maxPlayerHp = 100; //最大HP
 	public static int maxPlayerMp = 30; //最大MP
-	public int playerDefense =10; //防御力
-	public int exp = 0; //経験値
-	public int gold = 0; //お金
-	static public int playerHpTank = 100;
+	public static int playerDefense = 10; //防御力
+	public static int exp = 0; //経験値
+	public static int gold = 0; //お金
+	/*static public int playerHpTank = 100;
 	static public int playerMpTank = 30;
 	static public int expTank = 0;
-	static public int goldTank = 0;
+	static public int goldTank = 0;*/
 
 	void Awake(){
 		if (PlayerPrefs.GetInt ("saveCheck") == 1 && PlayerFieldMoveScript.sceneStart == 0) {
-			playerHpTank = PlayerPrefs.GetInt ("hpSaveDate");
-			playerMpTank = PlayerPrefs.GetInt ("mpSaveDate");
-			expTank = PlayerPrefs.GetInt ("expSaveDate");
-			goldTank = PlayerPrefs.GetInt ("goldSaveDate");
+			playerHp = PlayerPrefs.GetInt ("hpSaveDate");
+			playerMp = PlayerPrefs.GetInt ("mpSaveDate");
+			playerPower = PlayerPrefs.GetInt ("powerSaveDate");
+			playerDefense = PlayerPrefs.GetInt ("defenceSaveDate");
+			playerSpeed = PlayerPrefs.GetInt ("speedSaveDate");
+			exp = PlayerPrefs.GetInt ("expSaveDate");
+			gold = PlayerPrefs.GetInt ("goldSaveDate");
 			maxPlayerHp = PlayerPrefs.GetInt ("maxHpSaveDate");
 			maxPlayerMp = PlayerPrefs.GetInt ("maxMpSaveDate");
-			StatusStorageExport ();
+			//StatusStorageExport ();
 		}
 	}
 
@@ -47,7 +50,7 @@ public class PlayerStatus : MonoBehaviour {
 		gold += 50;
 	}
 
-	public void StatusStorageInport(){
+	/*public void StatusStorageInport(){
 		Debug.Log ("inport");
 		playerHpTank = playerHp;
 		playerMpTank = playerMp;
@@ -61,6 +64,6 @@ public class PlayerStatus : MonoBehaviour {
 		playerMp = playerMpTank;
 		exp = expTank;
 		gold = goldTank;
-	}
+	}*/
 
 }

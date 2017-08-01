@@ -4,7 +4,6 @@ using System.Collections;
 public class SkillManager : MonoBehaviour {
 
 	GameObject enemy;
-	PlayerStatus playerStatus;
 	PlayerMover playermover;
 	EnemyMover enemyMover;
 	EnemyStatus enemyStatus;
@@ -18,7 +17,6 @@ public class SkillManager : MonoBehaviour {
 		enemyStatus = enemy.GetComponent<EnemyStatus> ();
 		enemyMover = enemy.GetComponent<EnemyMover> ();
 		enemyRigidbody = enemy.GetComponent<Rigidbody> ();
-		playerStatus = GetComponent<PlayerStatus> ();
 		playermover = GetComponent<PlayerMover> ();
 	}
 	
@@ -29,10 +27,10 @@ public class SkillManager : MonoBehaviour {
 		
 	public void Flame (){
 		float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
-		if (dis <= 6 && playerStatus.playerMp >= 7) {
-			playerStatus.playerMp -= 7;
+		if (dis <= 6 && PlayerStatus.playerMp >= 7) {
+			PlayerStatus.playerMp -= 7;
 			int damage;
-			damage = playerStatus.playerPower + Random.Range (8, 13);
+			damage = PlayerStatus.playerPower + Random.Range (8, 13);
 			Instantiate (flameEffect, enemy.transform.position, enemy.transform.rotation);
 			enemyStatus.EnemyDamage (damage);
 			playermover.playercomandcheck = 1;
@@ -41,10 +39,10 @@ public class SkillManager : MonoBehaviour {
 
 	public void Wind(){
 		float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
-		if (dis <= 4 && playerStatus.playerMp >= 8) {
-			playerStatus.playerMp -= 8;
+		if (dis <= 4 && PlayerStatus.playerMp >= 8) {
+			PlayerStatus.playerMp -= 8;
 			int damage;
-			damage = playerStatus.playerPower + Random.Range (6, 10);
+			damage = PlayerStatus.playerPower + Random.Range (6, 10);
 			enemyStatus.EnemyDamage (damage);
 
 			enemyRigidbody.constraints = RigidbodyConstraints.None;

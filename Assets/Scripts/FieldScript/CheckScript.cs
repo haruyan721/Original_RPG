@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CheckScript : MonoBehaviour {
 
-	PlayerStatus playerStatus;
 
 	// Use this for initialization
 	void Start () {
-		playerStatus = GetComponent<PlayerStatus> ();
+		
 	}
 	
 	// Update is called once per frame
@@ -18,10 +17,9 @@ public class CheckScript : MonoBehaviour {
 
 	void OnCollisionStay (Collision col){
 		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P)) {
-			Debug.Log ("ok");
-			playerStatus.playerHp = PlayerStatus.maxPlayerHp;
-			playerStatus.playerMp = PlayerStatus.maxPlayerMp;
-			playerStatus.StatusStorageInport ();
+			Debug.Log (PlayerStatus.maxPlayerHp);
+			PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;
+			PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;
 		}
 	}
 }
