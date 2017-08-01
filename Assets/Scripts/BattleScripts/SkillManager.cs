@@ -27,10 +27,10 @@ public class SkillManager : MonoBehaviour {
 		
 	public void Flame (){
 		float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
-		if (dis <= 6 && PlayerStatus.playerMp >= 7) {
-			PlayerStatus.playerMp -= 7;
+		if (dis <= 6 && PlayerStatus.playerMp >= 3) {
+			PlayerStatus.playerMp -= 3;
 			int damage;
-			damage = PlayerStatus.playerPower + Random.Range (8, 13);
+			damage = PlayerStatus.playerPower + Random.Range (4, 7);
 			Instantiate (flameEffect, enemy.transform.position, enemy.transform.rotation);
 			enemyStatus.EnemyDamage (damage);
 			playermover.playercomandcheck = 1;
@@ -39,10 +39,10 @@ public class SkillManager : MonoBehaviour {
 
 	public void Wind(){
 		float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
-		if (dis <= 4 && PlayerStatus.playerMp >= 8) {
-			PlayerStatus.playerMp -= 8;
+		if (dis <= 4 && PlayerStatus.playerMp >= 5) {
+			PlayerStatus.playerMp -= 5;
 			int damage;
-			damage = PlayerStatus.playerPower + Random.Range (6, 10);
+			damage = PlayerStatus.playerPower + Random.Range (1, 4);
 			enemyStatus.EnemyDamage (damage);
 
 			enemyRigidbody.constraints = RigidbodyConstraints.None;

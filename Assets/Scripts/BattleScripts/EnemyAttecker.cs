@@ -34,10 +34,8 @@ public class EnemyAttecker : MonoBehaviour {
 			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 			float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
 			if(dis <= 3f && enemyMover.enemyComandcheck == 0){
-				int damage = enemyStatus.enemyPower + Random.Range (0, 4);
+				int damage = enemyStatus.enemyPower + Random.Range (-2, 2);
 				Instantiate (hitEffect, player.transform.position, player.transform.rotation);
-				Debug.Log (damage);
-				Debug.Log (PlayerStatus.playerHp);
 				playerStatus.HPDamage (damage);
 			}
 			enemyMover.enemyComandcheck++;

@@ -7,6 +7,7 @@ public class PlayerHPbarManagement : MonoBehaviour {
 
 	GameObject playerHpBar;
 	private Slider _playerHpDraw;
+	float hpProportion = 0;
 
 
 	// Use this for initialization
@@ -17,7 +18,8 @@ public class PlayerHPbarManagement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_playerHpDraw.value = PlayerStatus.playerHp;
+		hpProportion = (float)PlayerStatus.playerHp / (float)PlayerStatus.maxPlayerHp;
+		_playerHpDraw.value = hpProportion;
 	}
 		
 }

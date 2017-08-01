@@ -7,6 +7,7 @@ public class PlayerMPbarManagement : MonoBehaviour {
 
 	GameObject playerMpBar;
 	private Slider _mpDraw;
+	float mpProportion = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class PlayerMPbarManagement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_mpDraw.value = PlayerStatus.playerMp;
+		mpProportion = (float)PlayerStatus.playerMp / (float)PlayerStatus.maxPlayerMp;
+		_mpDraw.value = mpProportion;
 	}
 }

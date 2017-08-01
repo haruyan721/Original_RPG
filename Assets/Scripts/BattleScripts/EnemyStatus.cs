@@ -3,9 +3,9 @@ using System.Collections;
 
 public class EnemyStatus : MonoBehaviour {
 	
-	public int enemySpeed = 20; //素早さ
-	public int enemyPower = 6; //攻撃力
-	public int enemyHp = 50; //体力
+	public int enemySpeed = 8; //素早さ
+	public int enemyPower = 4; //攻撃力
+	public int enemyHp = 12; //体力
 	GameObject turnManagement;
 	TurnManager turnManager;
 

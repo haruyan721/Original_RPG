@@ -1570,13 +1570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerPower: 10
-  playerHp: 100
-  playerMp: 30
-  playerDefense: 10
-  exp: 0
-  gold: 0
 --- !u!114 &818504898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2122,8 +2115,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3057,8 +3050,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3179,9 +3172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6918d648f6c48018b4e693ba819408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 20
+  enemySpeed: 8
   enemyPower: 6
-  enemyHp: 100
+  enemyHp: 12
 --- !u!114 &1512910718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3954,8 +3947,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:

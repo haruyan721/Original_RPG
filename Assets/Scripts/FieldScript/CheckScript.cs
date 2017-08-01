@@ -17,7 +17,6 @@ public class CheckScript : MonoBehaviour {
 
 	void OnCollisionStay (Collision col){
 		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P)) {
-			Debug.Log (PlayerStatus.maxPlayerHp);
 			PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;
 			PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;
 		}
