@@ -29,6 +29,11 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+
+
+
+	}
+	void FixedUpdate(){
 		if (Input.GetKey (KeyCode.W)) {
 			transform.position += new Vector3(0,0,moveSpeed) * Time.deltaTime;
 		}
@@ -44,8 +49,6 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		if (Input.GetKey (KeyCode.D)) {
 			transform.position += new Vector3(moveSpeed,0,0) * Time.deltaTime;
 		}
-
-
 	}
 
 	void OnTriggerEnter(Collider col){
