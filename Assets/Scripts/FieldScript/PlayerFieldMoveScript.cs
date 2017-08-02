@@ -9,6 +9,8 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	public static GameObject battleEnemy = null;
 	int moveSpeed = 15;
 	public static int sceneStart = 0;
+	GameObject fadePanel;
+	SceneChangeManager sceneChangeManager;
 
 
 	// Use this for initialization
@@ -24,6 +26,8 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 	void Start () {
 		sceneStart = 1;
+		fadePanel = GameObject.Find ("FadePanel");
+		sceneChangeManager = fadePanel.GetComponent<SceneChangeManager> ();
 	}
 	
 	// Update is called once per frame
@@ -53,10 +57,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Enemy") {
-			mypos = this.transform.position;
-			battleEnemy = col.gameObject;
-
-			SceneManager.LoadScene ("Battle");
+			sceneChangeManager.changeType = 1;
 		}
 	}
 }
