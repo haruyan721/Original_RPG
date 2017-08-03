@@ -21,35 +21,20 @@ public class TurnManager : MonoBehaviour {
 	GameObject player;
 	GameObject enemy;
 	EnemyStatus enemyStatus;
+	GameObject fadePanel;
+	SceneChangeManager sceneChangeManager;
 
 
 	void Awake (){
-		
 		player = GameObject.Find ("Player"); //プレイヤーを取得
 		playerSpeedCheck = PlayerStatus.playerSpeed; //素早さを代入
 		enemy = GameObject.Find("Enemy"); //敵を取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
-		//playerStatus.StatusStorageExport ();
-		//transActionScript = dates.GetComponent<TransActionScript> ();
+		fadePanel = GameObject.Find("FadePanel");
+		sceneChangeManager = fadePanel.GetComponent<SceneChangeManager> ();
+		sceneChangeManager.changeType = 2;
 		MenberCheck();
-
-
-		if (playerSpeedCheck >= enemySpeedCheck) { //どちらが先に動くかの処理
-			
-			playerTurnNum = 1; //ターン順の決定
-			enemyTurnNum = 2;
-			battleText = "your turn"; 
-			textWindow.text = battleText;
-
-		} else {
-			
-			playerTurnNum = 2; //ターン順の決定
-			enemyTurnNum = 1;
-			battleText = "enemy turn"; 
-			textWindow.text = battleText;
-
-		}
 
 	}
 
@@ -67,7 +52,7 @@ public class TurnManager : MonoBehaviour {
 			textWindow.text = battleText;
 			PlayerStatus.exp += 25;
 			PlayerStatus.gold += 12;
-			Invoke ("FieldBack", 2);
+			Invoke ("FieldBackWait", 2);
 		}
 
 	}
@@ -97,9 +82,33 @@ public class TurnManager : MonoBehaviour {
 		allMenber = playerMenber + enemyMenber;
 	}
 
-	void FieldBack(){
+	void FieldBackWait(){
+		//Debug.Log (fadePanel.name);
+		fadePanel.SetActive (true);
+		sceneChangeManager.changeType = 3;
+	}
+
+	public void FieldBack(){
 		//playerStatus.StatusStorageInport ();
 		SceneManager.LoadScene ("Field");
+	}
+
+	public void BattleStart(){
+		if (playerSpeedCheck >= enemySpeedCheck) { //どちらが先に動くかの処理
+
+			playerTurnNum = 1; //ターン順の決定
+			enemyTurnNum = 2;
+			battleText = "your turn"; 
+			textWindow.text = battleText;
+
+		} else {
+
+			playerTurnNum = 2; //ターン順の決定
+			enemyTurnNum = 1;
+			battleText = "enemy turn"; 
+			textWindow.text = battleText;
+
+		}
 	}
 		
 }

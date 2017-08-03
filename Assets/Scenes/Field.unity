@@ -703,7 +703,6 @@ GameObject:
   - component: {fileID: 1658444763}
   - component: {fileID: 1658444765}
   - component: {fileID: 1658444764}
-  - component: {fileID: 1658444766}
   - component: {fileID: 1658444767}
   m_Layer: 5
   m_Name: FadePanel
@@ -742,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -763,19 +762,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1658444762}
---- !u!114 &1658444766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658444762}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64157cc7e78664f5e91e91a61399ae23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeSpeed: 0.01
-  fadeType: 0
 --- !u!114 &1658444767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ebcf2860b9d4cf59d49451d503a18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.01
+  fadeSpeed: 0.05
   changeType: 0
 --- !u!1 &1669646803
 GameObject:
