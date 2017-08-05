@@ -22,7 +22,7 @@ public class TurnManager : MonoBehaviour {
 	GameObject enemy;
 	EnemyStatus enemyStatus;
 	GameObject fadePanel;
-	SceneChangeManager sceneChangeManager;
+	FadeManager fadeManager;
 
 
 	void Awake (){
@@ -32,9 +32,11 @@ public class TurnManager : MonoBehaviour {
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
 		fadePanel = GameObject.Find("FadePanel");
-		sceneChangeManager = fadePanel.GetComponent<SceneChangeManager> ();
-		sceneChangeManager.changeType = 2;
+		fadeManager = fadePanel.GetComponent<FadeManager> ();
+		fadeManager.fadeName = "BattleStart";
+		fadeManager.changeType = 2;
 		MenberCheck();
+
 
 	}
 
@@ -85,7 +87,9 @@ public class TurnManager : MonoBehaviour {
 	void FieldBackWait(){
 		//Debug.Log (fadePanel.name);
 		fadePanel.SetActive (true);
-		sceneChangeManager.changeType = 3;
+		FadeManager.fadeSpeed = 0.1f;
+		fadeManager.fadeName = "BattleEnd";
+		fadeManager.changeType = 1;
 	}
 
 	public void FieldBack(){

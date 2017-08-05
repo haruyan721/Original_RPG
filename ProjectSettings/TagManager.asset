@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Rest
+  - Town1In
+  - Town1Out
   layers:
   - Default
   - TransparentFX

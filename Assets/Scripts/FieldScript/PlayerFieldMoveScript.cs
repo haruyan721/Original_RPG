@@ -7,11 +7,12 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 	public static Vector3 mypos = new Vector3(0,0.725f,0);
 	public static GameObject battleEnemy = null;
+	public int townMode;
 	int moveSpeed = 15;
 	public static int sceneStart = 0;
-	int moveStop = 0;
+	public int moveStop = 0;
 	GameObject fadePanel;
-	SceneChangeManager sceneChangeManager;
+	FadeManager fadeManager;
 
 
 	// Use this for initialization
@@ -22,14 +23,16 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		}
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");
-		sceneChangeManager = fadePanel.GetComponent<SceneChangeManager> ();
+		fadeManager = fadePanel.GetComponent<FadeManager> ();
 	}
 
 
 	void Start () {
 		if (sceneStart == 1) {
+			moveStop = 1;
+			fadeManager.fadeName = "BattleEnd";
 			fadePanel.SetActive (true);
-			sceneChangeManager.changeType = 4;
+			fadeManager.changeType = 2;
 		}
 		sceneStart = 1;
 	}
@@ -61,11 +64,30 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider col){
+	/*void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Enemy") {
 			moveStop = 1;
 			fadePanel.SetActive (true);
-			sceneChangeManager.changeType = 1;
+			fadeManager.changeType = 1;
 		}
-	}
+		if (col.gameObject.tag == "Town1In") {
+			moveStop = 1;
+			fadeManager.fadeSpeed = 0.05f;
+			fadeManager.movePos = new Vector3 (-35, 0.725f, 0);
+			fadeManager.fadeName = "Town1In";
+			fadePanel.SetActive (true);
+			fadeManager.changeType = 1;
+			townMode = 1;
+		}
+		if (col.gameObject.tag == "TownOnt") {
+			moveStop = 1;
+			fadeManager.fadeSpeed = 0.05f;
+			fadeManager.movePos = new Vector3 (-25, 0.725f, 0);
+			fadeManager.fadeName = "Town1Out";
+			fadePanel.SetActive (true);
+			fadeManager.changeType = 2;
+			townMode = 0;
+		}
+	}*/
+		 
 }

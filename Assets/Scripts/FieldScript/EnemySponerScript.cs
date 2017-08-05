@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySponerScript : MonoBehaviour {
 	public GameObject enemy;
+	GameObject player;
 	float timer = 0;
 	int interval = 3;
 	// Use this for initialization
@@ -13,6 +14,7 @@ public class EnemySponerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		timer += Time.deltaTime;
 		if (timer >= interval) {
 			timer = 0;
