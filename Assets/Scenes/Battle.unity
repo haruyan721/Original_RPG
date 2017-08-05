@@ -1472,6 +1472,7 @@ GameObject:
   - component: {fileID: 818504904}
   - component: {fileID: 818504903}
   - component: {fileID: 818504896}
+  - component: {fileID: 818504905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1667,6 +1668,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillNum: 0
+--- !u!114 &818504905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa13bd40b9595405a8bc22969f50bebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,8 +2788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ebcf2860b9d4cf59d49451d503a18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.05
   changeType: 0
+  fadeName: 
+  movePos: {x: 0, y: 0, z: 0}
 --- !u!114 &1346391495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3709,6 +3722,7 @@ MonoBehaviour:
   enemyTurnNum: 0
   playerMenber: 0
   enemyMenber: 0
+  escapeCheck: 0
   allMenber: 2
   textWindow: {fileID: 485700074}
 --- !u!4 &1780781007
@@ -3930,7 +3944,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1927880172}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818504905}
+        m_MethodName: Escape
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1927880172

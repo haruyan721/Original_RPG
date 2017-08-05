@@ -12,6 +12,7 @@ public class TurnManager : MonoBehaviour {
 	public int enemyTurnNum; //敵のターン順
 	public int playerMenber;
 	public int enemyMenber;
+	public int escapeCheck;
 	public int allMenber = 2;
 	int playerSpeedCheck = 0; //プレイヤーのスピードを取得
 	int enemySpeedCheck = 0; //敵のスピードを取得
@@ -47,7 +48,7 @@ public class TurnManager : MonoBehaviour {
 
 
 	void Update () {
-		if (enemyMenber == 0 && battleEndCheck == 0) {
+		if (enemyMenber == 0 && battleEndCheck == 0 && escapeCheck == 0) {
 			battleText = "You Win!!";
 			battleEndCheck = 1;
 			//playerStatus.BattleBonusGet ();
@@ -55,6 +56,12 @@ public class TurnManager : MonoBehaviour {
 			PlayerStatus.exp += 20;
 			PlayerStatus.gold += 5;
 			Invoke ("FieldBackWait", 2);
+		} else if (escapeCheck == 1) {
+			battleEndCheck = 1;
+			battleText = "Escape!";
+			textWindow.text = battleText;
+			Invoke ("FieldBackWait", 2);
+
 		}
 
 	}

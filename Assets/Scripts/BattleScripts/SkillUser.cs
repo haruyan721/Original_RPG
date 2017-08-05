@@ -4,7 +4,7 @@ using System.Collections;
 public class SkillUser : MonoBehaviour {
 	GameObject turnManagemnt;
 	TurnManager turnManager;
-	PlayerMover playermover;
+	PlayerMover playerMover;
 	SkillManager skillManager;
 	SkillWindowPopup skillWindowPopup;
 	public int skillNum;
@@ -13,7 +13,7 @@ public class SkillUser : MonoBehaviour {
 	void Start () {
 		turnManagemnt = GameObject.Find ("TurnManagement");
 		turnManager = turnManagemnt.GetComponent<TurnManager> ();
-		playermover = GetComponent<PlayerMover> ();
+		playerMover = GetComponent<PlayerMover> ();
 		skillManager = GetComponent<SkillManager> ();
 		skillWindowPopup = GetComponent<SkillWindowPopup> ();
 	}
@@ -24,14 +24,14 @@ public class SkillUser : MonoBehaviour {
 	}
 
 	public void SkillButton1(){
-		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
 			skillWindowPopup.PopUpDown ();
 			skillManager.Flame ();
 		}
 	}
 
 	public void SkillButton2(){
-		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
 			skillWindowPopup.PopUpDown ();
 			skillManager.Wind ();
 		}
