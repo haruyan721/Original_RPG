@@ -52,8 +52,8 @@ public class TurnManager : MonoBehaviour {
 			battleEndCheck = 1;
 			//playerStatus.BattleBonusGet ();
 			textWindow.text = battleText;
-			PlayerStatus.exp += 25;
-			PlayerStatus.gold += 12;
+			PlayerStatus.exp += 20;
+			PlayerStatus.gold += 5;
 			Invoke ("FieldBackWait", 2);
 		}
 
@@ -87,7 +87,7 @@ public class TurnManager : MonoBehaviour {
 	void FieldBackWait(){
 		//Debug.Log (fadePanel.name);
 		fadePanel.SetActive (true);
-		FadeManager.fadeSpeed = 0.1f;
+		FadeManager.fadeSpeed = 0.05f;
 		fadeManager.fadeName = "BattleEnd";
 		fadeManager.changeType = 1;
 	}

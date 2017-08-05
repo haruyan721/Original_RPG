@@ -27,7 +27,7 @@ public class PlayerStatus : MonoBehaviour {
 			playerHp = PlayerPrefs.GetInt ("hpSaveDate");
 			playerMp = PlayerPrefs.GetInt ("mpSaveDate");
 			playerPower = PlayerPrefs.GetInt ("powerSaveDate");
-			playerDefense = PlayerPrefs.GetInt ("defenceSaveDate");
+			playerDefense = PlayerPrefs.GetInt ("defenseSaveDate");
 			playerSpeed = PlayerPrefs.GetInt ("speedSaveDate");
 			exp = PlayerPrefs.GetInt ("expSaveDate");
 			gold = PlayerPrefs.GetInt ("goldSaveDate");
@@ -48,7 +48,11 @@ public class PlayerStatus : MonoBehaviour {
 
 	public void HPDamage(int Damage){
 		int blockPoint = playerDefense + Random.Range (-3, 1);
-		playerHp -= Damage-blockPoint;
+		if (Damage <= blockPoint) {
+			playerHp =- 1;
+		} else {
+			playerHp -= Damage - blockPoint;
+		}
 	}
 
 

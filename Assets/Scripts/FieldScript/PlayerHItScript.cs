@@ -7,10 +7,14 @@ public class PlayerHItScript : MonoBehaviour {
 	GameObject fadePanel;
 	FadeManager fadeManager;
 	// Use this for initialization
-	void Start () {
+
+	void Awake(){
 		fadePanel = GameObject.Find ("FadePanel");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
 		playerFieldMoveScript = GetComponent<PlayerFieldMoveScript> ();
+	}
+	void Start () {
+		
 	}
 	
 	// Update is called once per frame
@@ -21,7 +25,6 @@ public class PlayerHItScript : MonoBehaviour {
 		if (col.gameObject.tag == "Enemy") {
 			playerFieldMoveScript.moveStop = 1;
 			PlayerFieldMoveScript.mypos = this.transform.position;
-		
 			FadeManager.fadeSpeed = 0.05f;
 			fadeManager.fadeName = "BattleStart"; 
 			fadePanel.SetActive (true);

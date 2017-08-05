@@ -35,7 +35,7 @@ public class PlayerAttacker : MonoBehaviour {
 			float dis = Vector3.Distance (playermover.movingPos, enemymover.enemyPos); //プレイヤーと敵の距離を取得
 
 			if (dis <= 3f) {
-				int damage = PlayerStatus.playerPower + Random.Range (-3, 3);
+				int damage = PlayerStatus.playerPower + Random.Range (-3, 2) + 1;
 				enemyStatus.EnemyDamage (damage);
 				Instantiate (hitEffect, enemy.transform.position, enemy.transform.rotation);
 				playermover.playercomandcheck = 1;
