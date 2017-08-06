@@ -6,8 +6,10 @@ public class MenuPopUpScript : MonoBehaviour {
 	int popcheck = 0;
 	GameObject menuWindows;
 	// Use this for initialization
+	void Awake(){
+		menuWindows = GameObject.Find ("MenuPanel");
+	}
 	void Start () {
-		menuWindows = GameObject.Find ("MenuWindows");
 		menuWindows.SetActive (false);
 	}
 	

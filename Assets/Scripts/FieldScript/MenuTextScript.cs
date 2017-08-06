@@ -29,7 +29,7 @@ public class MenuTextScript : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake(){
 		menuLevelTextWindow = GameObject.Find("MenuLevelTextWindow");
 		menuHpTextWindow = GameObject.Find("MenuHPTextWindow");
 		menuMpTextWindow = GameObject.Find("MenuMPTextWindow");
@@ -44,6 +44,10 @@ public class MenuTextScript : MonoBehaviour {
 		defenceText = menuDefenceTextWindow.GetComponent<Text> ();
 		speedText = menuSpeedTextWindow.GetComponent<Text> ();
 		goldText = menuGoldTextWindow.GetComponent<Text> ();
+	}
+
+	void Start () {
+		
 	}
 	
 	// Update is called once per frame

@@ -94,7 +94,6 @@ public class FadeManager : MonoBehaviour {
 					break;
 
 				case "BattleEnd":
-					Debug.Log("ok");
 					changeType = 0;
 					playerFieldMoveScript.moveStop = 0;
 					this.gameObject.SetActive (false);

@@ -47,9 +47,10 @@ public class PlayerStatus : MonoBehaviour {
 	}
 
 	public void HPDamage(int Damage){
+		Debug.Log (Damage);
 		int blockPoint = playerDefense + Random.Range (-3, 1);
 		if (Damage <= blockPoint) {
-			playerHp =- 1;
+			playerHp = playerHp - 1;
 		} else {
 			playerHp -= Damage - blockPoint;
 		}

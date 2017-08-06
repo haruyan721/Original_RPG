@@ -30,6 +30,7 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("speedSaveDate", PlayerStatus.playerSpeed);
 		PlayerPrefs.SetInt ("expSaveDate", PlayerStatus.exp);
 		PlayerPrefs.SetInt ("goldSaveDate", PlayerStatus.gold);
+		PlayerPrefs.SetInt ("potionNullSaveDate", ItemTankScript.potionNum);
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
 

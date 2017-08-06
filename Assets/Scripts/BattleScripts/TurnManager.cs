@@ -19,7 +19,7 @@ public class TurnManager : MonoBehaviour {
 	int battleEndCheck = 0;
 	public Text textWindow;
 	string battleText;
-	GameObject player;
+	//GameObject player;
 	GameObject enemy;
 	EnemyStatus enemyStatus;
 	GameObject fadePanel;
@@ -27,7 +27,7 @@ public class TurnManager : MonoBehaviour {
 
 
 	void Awake (){
-		player = GameObject.Find ("Player"); //プレイヤーを取得
+		//player = GameObject.Find ("Player"); //プレイヤーを取得
 		playerSpeedCheck = PlayerStatus.playerSpeed; //素早さを代入
 		enemy = GameObject.Find("Enemy"); //敵を取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得

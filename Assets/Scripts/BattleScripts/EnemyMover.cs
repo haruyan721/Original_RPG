@@ -24,12 +24,14 @@ public class EnemyMover : MonoBehaviour {
 		if (turnManager.enemyTurnNum == turnManager.turncount && enemyMovecheck == 0) {
 			_rigidbody.constraints = RigidbodyConstraints.None;
 			_rigidbody.constraints = RigidbodyConstraints.FreezePositionY |
-				RigidbodyConstraints.FreezeRotationX |
-				RigidbodyConstraints.FreezeRotation;
+			RigidbodyConstraints.FreezeRotationX |
+			RigidbodyConstraints.FreezeRotation;
 			//transform.Rotate (new Vector3 (0, Random.Range (-180, 180), 0));
-			transform.LookAt(player.transform);
+			transform.LookAt (player.transform);
 			gameObject.GetComponent<Rigidbody> ().velocity = transform.forward * Random.Range (20f, 30f);
 			enemyMovecheck++;
+		} else if(turnManager.enemyTurnNum != turnManager.turncount){
+			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
 
 		enemyPos = this.transform.position; //敵の位置を取得
