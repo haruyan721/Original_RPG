@@ -11,7 +11,6 @@ public class ItemTankScript : MonoBehaviour {
 		}
 	}
 	void Start () {
-		Debug.Log (PlayerPrefs.GetInt ("potionNullSaveDate"));
 
 	}
 	

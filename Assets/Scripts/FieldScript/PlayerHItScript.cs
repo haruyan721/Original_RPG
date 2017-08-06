@@ -25,6 +25,16 @@ public class PlayerHItScript : MonoBehaviour {
 		if (col.gameObject.tag == "Enemy") {
 			playerFieldMoveScript.moveStop = 1;
 			PlayerFieldMoveScript.mypos = this.transform.position;
+			PlayerFieldMoveScript.battleEnemy = 1;
+			FadeManager.fadeSpeed = 0.05f;
+			fadeManager.fadeName = "BattleStart"; 
+			fadePanel.SetActive (true);
+			fadeManager.changeType = 1;
+		}
+		if (col.gameObject.tag == "Enemy2") {
+			playerFieldMoveScript.moveStop = 1;
+			PlayerFieldMoveScript.mypos = this.transform.position;
+			PlayerFieldMoveScript.battleEnemy = 2;
 			FadeManager.fadeSpeed = 0.05f;
 			fadeManager.fadeName = "BattleStart"; 
 			fadePanel.SetActive (true);

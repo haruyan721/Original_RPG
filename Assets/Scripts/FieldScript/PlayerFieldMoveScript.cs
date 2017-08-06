@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerFieldMoveScript : MonoBehaviour {
 
 	public static Vector3 mypos = new Vector3(0,0.725f,0);
-	public static GameObject battleEnemy = null;
+	public static int battleEnemy = 0;
 	public int townMode;
 	int moveSpeed = 15;
 	public static int sceneStart = 0;

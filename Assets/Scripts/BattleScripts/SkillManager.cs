@@ -13,7 +13,14 @@ public class SkillManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		enemy = GameObject.Find ("Enemy");
+		switch (PlayerFieldMoveScript.battleEnemy) {
+		case 1:
+			enemy = GameObject.Find("Battle_Enemy1(Clone)");
+			break;
+		case 2:
+			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
+			break;
+		}
 		enemyStatus = enemy.GetComponent<EnemyStatus> ();
 		enemyMover = enemy.GetComponent<EnemyMover> ();
 		enemyRigidbody = enemy.GetComponent<Rigidbody> ();

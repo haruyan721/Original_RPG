@@ -7,6 +7,7 @@ public class TurnManager : MonoBehaviour {
 
 	GameObject [] enemys;
 	GameObject [] players;
+	GameObject enemyPrefab;
 	public int turncount = 1; //ターン番号
 	public int playerTurnNum; //プレイヤーのターン順
 	public int enemyTurnNum; //敵のターン順
@@ -19,30 +20,49 @@ public class TurnManager : MonoBehaviour {
 	int battleEndCheck = 0;
 	public Text textWindow;
 	string battleText;
-	//GameObject player;
 	GameObject enemy;
 	EnemyStatus enemyStatus;
 	GameObject fadePanel;
 	FadeManager fadeManager;
+	BattleBonusScript battleBonusScript;
 
 
 	void Awake (){
-		//player = GameObject.Find ("Player"); //プレイヤーを取得
-		playerSpeedCheck = PlayerStatus.playerSpeed; //素早さを代入
-		enemy = GameObject.Find("Enemy"); //敵を取得
-		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
-		enemySpeedCheck = enemyStatus.enemySpeed; //代入
-		fadePanel = GameObject.Find("FadePanel");
-		fadeManager = fadePanel.GetComponent<FadeManager> ();
-		fadeManager.fadeName = "BattleStart";
-		fadeManager.changeType = 2;
-		MenberCheck();
 
+		switch (PlayerFieldMoveScript.battleEnemy) {
+
+		case 1:
+			enemyPrefab = (GameObject)Resources.Load ("Prefabs/Battle_Enemy1");
+			Instantiate (enemyPrefab);
+			break;
+
+		case 2:
+			enemyPrefab = (GameObject)Resources.Load ("Prefabs/Battle_Enemy2");
+			Instantiate (enemyPrefab);
+			break;
+		}
 
 	}
 
 	void Start () {
+		playerSpeedCheck = PlayerStatus.playerSpeed; //素早さを代入
+		switch (PlayerFieldMoveScript.battleEnemy) {
+		case 1:
+			enemy = GameObject.Find("Battle_Enemy1(Clone)"); //敵を取得
+			break;
+		case 2:
+			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
+			break;
+		}
 
+		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
+		enemySpeedCheck = enemyStatus.enemySpeed; //代入
+		fadePanel = GameObject.Find("FadePanel");
+		fadeManager = fadePanel.GetComponent<FadeManager> ();
+		battleBonusScript = enemy.GetComponent<BattleBonusScript>();
+		fadeManager.fadeName = "BattleStart";
+		fadeManager.changeType = 2;
+		MenberCheck();
 
 	}
 
@@ -51,10 +71,10 @@ public class TurnManager : MonoBehaviour {
 		if (enemyMenber == 0 && battleEndCheck == 0 && escapeCheck == 0) {
 			battleText = "You Win!!";
 			battleEndCheck = 1;
-			//playerStatus.BattleBonusGet ();
 			textWindow.text = battleText;
-			PlayerStatus.exp += 20;
-			PlayerStatus.gold += 5;
+			battleBonusScript.BattleBonusGet ();
+			/*PlayerStatus.exp += 20;
+			PlayerStatus.gold += 5;*/
 			Invoke ("FieldBackWait", 2);
 		} else if (escapeCheck == 1) {
 			battleEndCheck = 1;
@@ -86,7 +106,7 @@ public class TurnManager : MonoBehaviour {
 	void MenberCheck(){
 		players = GameObject.FindGameObjectsWithTag("Player");
 		playerMenber = players.Length;
-		enemys = GameObject.FindGameObjectsWithTag ("Enemy");
+		enemys = GameObject.FindGameObjectsWithTag("Enemy");
 		enemyMenber = enemys.Length;
 		allMenber = playerMenber + enemyMenber;
 	}

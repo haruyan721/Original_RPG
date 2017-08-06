@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemySponerScript : MonoBehaviour {
 	public GameObject enemy;
+	public GameObject enemy2;
 	GameObject player;
 	float timer = 0;
 	int interval = 3;
+	int enemyRandomNum = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,6 +26,11 @@ public class EnemySponerScript : MonoBehaviour {
 	}
 
 	void Sporn(){
-		Instantiate (enemy);
+		enemyRandomNum = Random.Range (1, 11);
+		if (enemyRandomNum <= 7) {
+			Instantiate (enemy);
+		} else if (enemyRandomNum >= 8) {
+			Instantiate (enemy2);
+		}
 	}
 }

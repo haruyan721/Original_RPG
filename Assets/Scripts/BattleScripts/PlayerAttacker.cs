@@ -16,7 +16,14 @@ public class PlayerAttacker : MonoBehaviour {
 		
 		player = GameObject.Find ("Player");
 		playermover = player.GetComponent<PlayerMover> (); //プレイヤーの場所を記したスクリプトを取得
-		enemy = GameObject.Find ("Enemy");
+		switch (PlayerFieldMoveScript.battleEnemy) {
+		case 1:
+			enemy = GameObject.Find ("Battle_Enemy1(Clone)");
+			break;
+		case 2:
+			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
+			break;
+		}
 		enemymover = enemy.GetComponent<EnemyMover> (); //敵の場所を記したスクリプトを取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスを取得
 		turnManagement = GameObject.Find ("TurnManagement"); //ターン用のオブジェクトを取得
