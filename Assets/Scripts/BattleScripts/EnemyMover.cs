@@ -16,6 +16,9 @@ public class EnemyMover : MonoBehaviour {
 		turnManagement = GameObject.Find("TurnManagement");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
 		_rigidbody = GetComponent<Rigidbody> ();
+		if (turnManager.enemyTurnNum != turnManager.turncount) {
+			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		}
 	}
 	
 	// Update is called once per frame
@@ -30,9 +33,7 @@ public class EnemyMover : MonoBehaviour {
 			transform.LookAt (player.transform);
 			gameObject.GetComponent<Rigidbody> ().velocity = transform.forward * Random.Range (20f, 30f);
 			enemyMovecheck++;
-		} else if(turnManager.enemyTurnNum != turnManager.turncount){
-			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-		}
+		} 
 
 		enemyPos = this.transform.position; //敵の位置を取得
 
