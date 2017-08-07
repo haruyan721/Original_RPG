@@ -9,12 +9,14 @@ public class EnemyMover : MonoBehaviour {
 	public int enemyMovecheck; //移動したかどうかの判定
 	GameObject turnManagement; //ターン判定するオブジェクト
 	public TurnManager turnManager; //turnManagerを入れる用
+	EnemyStatus enemyStatus;
 	GameObject player; //デバッグ用のプレイヤー取得
 
 	void Start () {
 		player = GameObject.Find ("Player");
 		turnManagement = GameObject.Find("TurnManagement");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
+		enemyStatus = GetComponent<EnemyStatus> ();
 		_rigidbody = GetComponent<Rigidbody> ();
 		if (turnManager.enemyTurnNum != turnManager.turncount) {
 			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -31,7 +33,7 @@ public class EnemyMover : MonoBehaviour {
 			RigidbodyConstraints.FreezeRotation;
 			//transform.Rotate (new Vector3 (0, Random.Range (-180, 180), 0));
 			transform.LookAt (player.transform);
-			gameObject.GetComponent<Rigidbody> ().velocity = transform.forward * Random.Range (20f, 30f);
+			gameObject.GetComponent<Rigidbody> ().velocity = transform.forward * Random.Range (enemyStatus.enemyMoveRange - 5f, enemyStatus.enemyMoveRange + 5f);
 			enemyMovecheck++;
 		} 
 

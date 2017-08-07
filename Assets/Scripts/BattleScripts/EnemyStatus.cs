@@ -3,15 +3,31 @@ using System.Collections;
 
 public class EnemyStatus : MonoBehaviour {
 	
-	public int enemySpeed = 8; //素早さ
-	public int enemyPower = 4; //攻撃力
-	public int enemyHp = 12; //体力
+	public int enemySpeed; //素早さ
+	public int enemyPower; //攻撃力
+	public int enemyHp; //体力
+	public float enemyMoveRange;
 	GameObject turnManagement;
 	TurnManager turnManager;
 
 	void Start () {
 		turnManagement = GameObject.Find ("TurnManagement");
 		turnManager = turnManagement.GetComponent<TurnManager>();
+
+		switch (PlayerFieldMoveScript.battleEnemy) {
+		case 1:
+			enemySpeed = 8;
+			enemyPower = 6;
+			enemyHp = 12;
+			enemyMoveRange = 25;
+			break;
+		case 2:
+			enemySpeed = 8;
+			enemyPower = 9;
+			enemyHp = 20;
+			enemyMoveRange = 30;
+			break;
+		}
 	}
 	
 	// Update is called once per frame
