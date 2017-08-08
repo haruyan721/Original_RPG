@@ -20,6 +20,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	void Awake(){
 		if (PlayerPrefs.GetInt ("saveCheck") == 1 && sceneStart == 0) {
 			mypos = new Vector3(PlayerPrefs.GetFloat("player_XPosSaveDate"),0.725f,PlayerPrefs.GetFloat("player_ZPosSaveDate"));
+			townMode = PlayerPrefs.GetInt ("townModeSaveDate");
 		}
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");

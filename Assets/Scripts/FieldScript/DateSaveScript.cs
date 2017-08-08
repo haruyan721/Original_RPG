@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DateSaveScript : MonoBehaviour {
-
+	GameObject player;
+	PlayerFieldMoveScript playerFieldMoveScript;
 
 	// Use this for initialization
 	void Start () {
 		//PlayerPrefs.DeleteKey("saveCheck");
+		player = GameObject.Find("Player");
+		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +33,8 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("speedSaveDate", PlayerStatus.playerSpeed);
 		PlayerPrefs.SetInt ("expSaveDate", PlayerStatus.exp);
 		PlayerPrefs.SetInt ("goldSaveDate", PlayerStatus.gold);
-		PlayerPrefs.SetInt ("potionNullSaveDate", ItemTankScript.potionNum);
+		PlayerPrefs.SetInt ("potionNumSaveDate", ItemTankScript.potionNum);
+		PlayerPrefs.SetInt ("townModeSaveDate", playerFieldMoveScript.townMode);
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
 

@@ -9,6 +9,7 @@ TagManager:
   - Town1In
   - Town1Out
   - Enemy2
+  - NPC
   layers:
   - Default
   - TransparentFX

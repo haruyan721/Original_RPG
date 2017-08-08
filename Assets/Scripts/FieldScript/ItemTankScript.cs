@@ -7,7 +7,7 @@ public class ItemTankScript : MonoBehaviour {
 	// Use this for initialization
 	void Awake(){
 		if (PlayerPrefs.GetInt("saveCheck") == 1 && PlayerFieldMoveScript.sceneStart == 0) {
-			potionNum = PlayerPrefs.GetInt ("potionNullSaveDate");
+			potionNum = PlayerPrefs.GetInt ("potionNumSaveDate");
 		}
 	}
 	void Start () {

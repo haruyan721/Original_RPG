@@ -14,7 +14,7 @@ public class ItemWindowPopUp : MonoBehaviour {
 	Text potionTextWindow;
 	TurnManager turnManager;
 	PlayerMover playerMover;
-	int popUpCheck;
+	public int itemPopUpCheck;
 	string potionNumSentence;
 	// Use this for initialization
 
@@ -50,7 +50,7 @@ public class ItemWindowPopUp : MonoBehaviour {
 	}
 	public void ItemPopUpDown(){
 		if (SceneManager.GetActiveScene ().name == "Battle") {
-			if (popUpCheck == 0 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
+			if (itemPopUpCheck == 0 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
 				if (ItemTankScript.potionNum == 0) {
 					potion.SetActive (false);
 				}
@@ -58,21 +58,21 @@ public class ItemWindowPopUp : MonoBehaviour {
 				string potionNumSentence = "Potion : " + ItemTankScript.potionNum.ToString ();
 				potionTextWindow.text = potionNumSentence;
 				nextButton.SetActive (false);
-				popUpCheck++;
-			} else if (popUpCheck == 1 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
+				itemPopUpCheck++;
+			} else if (itemPopUpCheck == 1 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
 				itemWindow.SetActive (false);
 				nextButton.SetActive (true);
-				popUpCheck--;
+				itemPopUpCheck--;
 			}
 		} else if (SceneManager.GetActiveScene ().name == "Field") {
-			if(popUpCheck == 0){
+			if(itemPopUpCheck == 0){
 				menusPlayer.SetActive (false);
 				itemWindow.SetActive (true);
-				popUpCheck++;
-			}else if(popUpCheck == 1){
+				itemPopUpCheck++;
+			}else if(itemPopUpCheck == 1){
 				menusPlayer.SetActive (true);
 				itemWindow.SetActive (false);
-				popUpCheck--;
+				itemPopUpCheck--;
 			}
 		}
 	}
