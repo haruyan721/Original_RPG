@@ -45,6 +45,10 @@ public class PlayerMover : MonoBehaviour {
 			transform.position = originalPos;
 			moveRange.transform.position = originalPos;
 		}
+		if (PlayerStatus.playerHp <= 0) {
+			Destroy (this.gameObject);
+			turnManager.playerMenber--;
+		}
 
 	}
 

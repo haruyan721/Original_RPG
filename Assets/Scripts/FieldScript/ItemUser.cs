@@ -9,6 +9,7 @@ public class ItemUser : MonoBehaviour {
 	PlayerMover playerMover;
 	ItemManager itemManager;
 	ItemWindowPopUp itemWindowPopUp;
+	PlayerStatus playerStatus;
 	// Use this for initialization
 	void Start () {
 		if (SceneManager.GetActiveScene ().name == "Battle") {
@@ -18,6 +19,7 @@ public class ItemUser : MonoBehaviour {
 			itemWindowPopUp = GetComponent<ItemWindowPopUp> ();
 		}
 		itemManager = GetComponent<ItemManager> ();
+		playerStatus = GetComponent<PlayerStatus> ();
 	}
 	
 	// Update is called once per frame
@@ -25,14 +27,16 @@ public class ItemUser : MonoBehaviour {
 		
 	}
 	public void PotionUse(){
-		if (SceneManager.GetActiveScene ().name == "Battle") {
-			if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
-				itemWindowPopUp.ItemPopUpDown ();
+		if (playerStatus.noStatusMax == 1) {
+			if (SceneManager.GetActiveScene ().name == "Battle") {
+				if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
+					itemWindowPopUp.ItemPopUpDown ();
+					itemManager.Potion ();
+				}
+			}
+			if (SceneManager.GetActiveScene ().name == "Field") {
 				itemManager.Potion ();
 			}
-		}
-		if (SceneManager.GetActiveScene ().name == "Field") {
-			itemManager.Potion ();
 		}
 	}
 }

@@ -21,7 +21,6 @@ public class DateSaveScript : MonoBehaviour {
 	}
 
 	public void Save(){
-		Debug.Log ("ok");
 		PlayerPrefs.SetInt ("saveCheck", 1);
 		PlayerPrefs.SetInt ("levelSaveDate", PlayerStatus.level);
 		PlayerPrefs.SetInt ("hpSaveDate", PlayerStatus.playerHp);

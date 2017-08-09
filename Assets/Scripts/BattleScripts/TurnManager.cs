@@ -40,8 +40,12 @@ public class TurnManager : MonoBehaviour {
 			enemyPrefab = (GameObject)Resources.Load ("Prefabs/Battle_Enemy2");
 			Instantiate (enemyPrefab);
 			break;
-		}
 
+		case 3:
+			enemyPrefab = (GameObject)Resources.Load ("Prefabs/Battle_Boss");
+			Instantiate (enemyPrefab);
+			break;
+		}
 	}
 
 	void Start () {
@@ -52,6 +56,9 @@ public class TurnManager : MonoBehaviour {
 			break;
 		case 2:
 			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
+			break;
+		case 3:
+			enemy = GameObject.Find("Battle_Boss(Clone)"); //敵を取得
 			break;
 		}
 
@@ -76,6 +83,11 @@ public class TurnManager : MonoBehaviour {
 			/*PlayerStatus.exp += 20;
 			PlayerStatus.gold += 5;*/
 			Invoke ("FieldBackWait", 2);
+		}else if(playerMenber == 0 && battleEndCheck == 0 && escapeCheck == 0){
+			battleEndCheck = 1;
+			battleText = "You lose…";
+			textWindow.text = battleText;
+			Invoke ("GameOver", 2);
 		} else if (escapeCheck == 1) {
 			battleEndCheck = 1;
 			battleText = "Escape!";
@@ -122,6 +134,9 @@ public class TurnManager : MonoBehaviour {
 	public void FieldBack(){
 		//playerStatus.StatusStorageInport ();
 		SceneManager.LoadScene ("Field");
+	}
+	public void GameOver(){
+		SceneManager.LoadScene ("GameOver");
 	}
 
 	public void BattleStart(){

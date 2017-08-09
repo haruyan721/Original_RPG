@@ -25,6 +25,9 @@ public class NPCSentenceScript : MonoBehaviour {
 		case "NPC2":
 			textSentence = "やあ、元気かい？";
 			break;
+		case "Boss":
+			textSentence = "さぁ！かかってくるがよい！";
+			break;
 		}
 
 
@@ -38,7 +41,6 @@ public class NPCSentenceScript : MonoBehaviour {
 		
 	public string InSentence()
 	{
-		textSentence = textSentence;
 		return textSentence;
 
 	}

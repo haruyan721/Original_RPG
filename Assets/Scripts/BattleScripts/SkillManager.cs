@@ -20,6 +20,9 @@ public class SkillManager : MonoBehaviour {
 		case 2:
 			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
 			break;
+		case 3:
+			enemy = GameObject.Find("Battle_Boss(Clone)"); //敵を取得
+			break;
 		}
 		enemyStatus = enemy.GetComponent<EnemyStatus> ();
 		enemyMover = enemy.GetComponent<EnemyMover> ();

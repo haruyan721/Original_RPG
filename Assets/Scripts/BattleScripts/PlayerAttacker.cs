@@ -23,6 +23,9 @@ public class PlayerAttacker : MonoBehaviour {
 		case 2:
 			enemy = GameObject.Find("Battle_Enemy2(Clone)"); //敵を取得
 			break;
+		case 3:
+			enemy = GameObject.Find("Battle_Boss(Clone)"); //敵を取得
+			break;
 		}
 		enemymover = enemy.GetComponent<EnemyMover> (); //敵の場所を記したスクリプトを取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスを取得

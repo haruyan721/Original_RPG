@@ -13,6 +13,7 @@ public class PlayerStatus : MonoBehaviour {
 	public static int playerDefense =  3; //防御力
 	public static int exp = 0; //経験値
 	public static int gold = 0; //お金
+	public int noStatusMax = 0;
 
 
 	void Awake(){
@@ -43,6 +44,13 @@ public class PlayerStatus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (playerHp < maxPlayerHp) {
+			noStatusMax = 1;
+		} else if (playerMp < maxPlayerMp) {
+			noStatusMax = 1;
+		} else if (playerHp == maxPlayerHp && playerMp == maxPlayerMp) {
+			noStatusMax = 0;
+		}
 	
 	}
 
