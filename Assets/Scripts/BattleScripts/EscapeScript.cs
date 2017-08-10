@@ -18,7 +18,7 @@ public class EscapeScript : MonoBehaviour {
 		
 	}
 	public void Escape(){
-		if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
+		if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0 && PlayerFieldMoveScript.battleEnemy != 3) {
 			playerMover.playercomandcheck = 1;
 			turnManager.escapeCheck = 1;
 		}

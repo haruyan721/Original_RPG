@@ -8,8 +8,10 @@ public class FadeManager : MonoBehaviour {
 	GameObject player;
 	GameObject turnManagement;
 	GameObject fadePanel;
+	GameObject reStartText;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	TurnManager turnManager;
+	ReStartScript reStartScript;
 	public static float fadeSpeed = 0.01f;
 	float alfa = 0;
 	float red,green,blue;
@@ -38,6 +40,14 @@ public class FadeManager : MonoBehaviour {
 		} else if (SceneManager.GetActiveScene ().name == "Field" && PlayerFieldMoveScript.sceneStart == 1) {
 			alfa = 1;
 			GetComponent<Image> ().color = new Color (red, green, blue, alfa);
+		}
+		if (SceneManager.GetActiveScene ().name == "GameOver") {
+			alfa = 1;
+			reStartText = GameObject.Find ("ReStartText");
+			reStartScript = reStartText.GetComponent<ReStartScript> ();
+		}
+		if (SceneManager.GetActiveScene ().name == "Clear") {
+			alfa = 1;
 		}
 	}
 	
@@ -77,6 +87,18 @@ public class FadeManager : MonoBehaviour {
 					changeType = 2;
 					break;
 
+				case "GameOver":
+					changeType = 0;
+					fadeSpeed = 0.1f;
+					turnManager.GameOver ();
+					break;
+
+				case "Clear":
+					changeType = 0;
+					fadeSpeed = 0.1f;
+					turnManager.Clear ();
+					break;
+
 				}
 			}
 			break;
@@ -108,6 +130,16 @@ public class FadeManager : MonoBehaviour {
 				case "Town1Out":
 					changeType = 0;
 					playerFieldMoveScript.moveStop = 0;
+					this.gameObject.SetActive (false);
+					break;
+
+				case "GameOver":
+					changeType = 0;
+					reStartScript.reStartCheck = 0;
+					this.gameObject.SetActive (false);
+					break;
+				case "Clear":
+					changeType = 0;
 					this.gameObject.SetActive (false);
 					break;
 				}

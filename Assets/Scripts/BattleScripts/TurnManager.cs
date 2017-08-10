@@ -82,12 +82,16 @@ public class TurnManager : MonoBehaviour {
 			battleBonusScript.BattleBonusGet ();
 			/*PlayerStatus.exp += 20;
 			PlayerStatus.gold += 5;*/
-			Invoke ("FieldBackWait", 2);
+			if (PlayerFieldMoveScript.battleEnemy == 3) {
+				Invoke ("ClearWait", 2);
+			} else {
+				Invoke ("FieldBackWait", 2);
+			}
 		}else if(playerMenber == 0 && battleEndCheck == 0 && escapeCheck == 0){
 			battleEndCheck = 1;
 			battleText = "You lose…";
 			textWindow.text = battleText;
-			Invoke ("GameOver", 2);
+			Invoke ("GameOverWait", 2);
 		} else if (escapeCheck == 1) {
 			battleEndCheck = 1;
 			battleText = "Escape!";
@@ -135,8 +139,26 @@ public class TurnManager : MonoBehaviour {
 		//playerStatus.StatusStorageInport ();
 		SceneManager.LoadScene ("Field");
 	}
+
+	void GameOverWait(){
+		fadePanel.SetActive (true);
+		FadeManager.fadeSpeed = 0.05f;
+		fadeManager.fadeName = "GameOver";
+		fadeManager.changeType = 1;
+	}
+
 	public void GameOver(){
 		SceneManager.LoadScene ("GameOver");
+	}
+
+	void ClearWait(){
+		fadePanel.SetActive (true);
+		FadeManager.fadeSpeed = 0.05f;
+		fadeManager.fadeName = "Clear";
+		fadeManager.changeType = 1;
+	}
+	public void Clear(){
+		SceneManager.LoadScene ("Clear");
 	}
 
 	public void BattleStart(){
