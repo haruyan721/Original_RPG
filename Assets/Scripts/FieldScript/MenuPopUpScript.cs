@@ -26,6 +26,7 @@ public class MenuPopUpScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
 	public void MenuPop(){
 		if (popcheck == 0) {
 			menuWindows.SetActive (true);

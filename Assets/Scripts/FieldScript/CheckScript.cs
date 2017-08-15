@@ -6,23 +6,25 @@ using UnityEngine.UI;
 public class CheckScript : MonoBehaviour {
 	GameObject talkWindow;
 	GameObject talkTextWindow;
-	//GameObject player;
+	GameObject player;
 	GameObject fadePanel;
-	Text talkText;
+	public Text talkText;
 	NPCSentenceScript npcSentenceScript;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	FadeManager fadeManager;
+	ShopPopUpScript shopPopUpScript;
 	PlayerStatus playerStatus;
 	int talkCheck;
 	// Use this for initialization
 	void Awake(){
 		fadePanel = GameObject.Find ("FadePanel");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
+		player = GameObject.Find ("Player");
+		shopPopUpScript = player.GetComponent<ShopPopUpScript> ();
 	}
 	void Start () {
 		talkWindow = GameObject.Find ("TalkPanel");
 		talkTextWindow = GameObject.Find ("TalkText");
-		//player = GameObject.Find ("Player");
 		talkText = talkTextWindow.GetComponent<Text> ();
 		playerFieldMoveScript = GetComponent<PlayerFieldMoveScript> ();
 		playerStatus = GetComponent<PlayerStatus> ();
@@ -71,5 +73,26 @@ public class CheckScript : MonoBehaviour {
 				fadeManager.changeType = 1;
 			}
 		}
+		if (col.gameObject.tag == "Trader1" && Input.GetKeyDown (KeyCode.P)) {
+			Debug.Log ("ok");
+			if (talkCheck == 0 && shopPopUpScript.shopPopUpCheck == 0) {
+				npcSentenceScript = col.gameObject.GetComponent<NPCSentenceScript>();
+				talkText.text = npcSentenceScript.InSentence ();
+				playerFieldMoveScript.moveStop = 1;
+				talkCheck = 1;
+				talkWindow.SetActive (true);
+				shopPopUpScript.ShopPopUP ();
+			}
+		}
+	}
+
+	public void GetNPCTalkSentence(){
+		talkText.text = npcSentenceScript.InSentence ();
+	}
+
+	public void ShopQuit(){
+		talkCheck = 0;
+		talkWindow.SetActive (false);
+		shopPopUpScript.ShopPopUP ();
 	}
 }

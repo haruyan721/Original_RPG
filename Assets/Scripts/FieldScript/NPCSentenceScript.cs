@@ -25,6 +25,9 @@ public class NPCSentenceScript : MonoBehaviour {
 		case "NPC2":
 			textSentence = "やあ、元気かい？";
 			break;
+		case "TraderNPC":
+			textSentence = "何を買いますか？";
+			break;
 		case "Boss":
 			textSentence = "さぁ！かかってくるがよい！";
 			break;
@@ -45,9 +48,9 @@ public class NPCSentenceScript : MonoBehaviour {
 
 	}
 
-	public void NPCTalk(){
+	/*public void NPCTalk(){
 
-		/*if (talkCheck == 0) {
+		if (talkCheck == 0) {
 			talkWindow.SetActive (true);
 			talkTextWindow = GameObject.Find ("TalkText");
 			player = GameObject.Find ("Player");
@@ -72,7 +75,7 @@ public class NPCSentenceScript : MonoBehaviour {
 			talkWindow.SetActive (false);
 			talkText = null;
 		}
-	}*/
 	}
+	}*/
 
 }
