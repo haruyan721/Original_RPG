@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 398474230}
   - component: {fileID: 398474229}
   - component: {fileID: 398474228}
+  - component: {fileID: 398474231}
   m_Layer: 5
   m_Name: Atack
   m_TagString: Untagged
@@ -570,6 +571,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 398474226}
+--- !u!114 &398474231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 398474226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cac07847e194dc5b64e1dfa3995a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &485700072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noStatusMax: 0
 --- !u!114 &818504898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 100002, guid: 98f977e4c19aa4c9a854ffbb6e3d9a4f, type: 2}
   turnManager: {fileID: 0}
+  dis: 0
 --- !u!114 &818504902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2402,7 +2416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.61835754, y: 0.15574683}
   m_AnchorMax: {x: 1, y: 0.31949368}
-  m_AnchoredPosition: {x: 1.0339928, y: 0}
+  m_AnchoredPosition: {x: 1.0339966, y: 0}
   m_SizeDelta: {x: 1.9329987, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306212608

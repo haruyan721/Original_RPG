@@ -9,19 +9,22 @@ public class EnemySponerScript : MonoBehaviour {
 	float timer = 0;
 	int interval = 3;
 	int enemyRandomNum = 0;
+	PlayerFieldMoveScript playerFieldMoveScript;
 	// Use this for initialization
 	void Start () {
-		
+		player = GameObject.Find ("Player");
+		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		timer += Time.deltaTime;
-		if (timer >= interval) {
-			timer = 0;
-			interval = Random.Range(3,6);
-			Sporn ();
+		if (playerFieldMoveScript.townMode == 0) {
+			timer += Time.deltaTime;
+			if (timer >= interval) {
+				timer = 0;
+				interval = Random.Range (3, 6);
+				Sporn ();
+			}
 		}
 	}
 

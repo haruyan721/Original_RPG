@@ -11,6 +11,7 @@ public class PlayerAttacker : MonoBehaviour {
 	EnemyStatus enemyStatus;
 	GameObject turnManagement; //ターンを管理するオブジェクト
 	public TurnManager turnManager; //TurnManagerを入れる用
+	public float dis;
 
 	void Start () {
 		
@@ -35,14 +36,14 @@ public class PlayerAttacker : MonoBehaviour {
 	}
 
 	void Update () {
-	
+		dis = Vector3.Distance (playermover.movingPos, enemymover.enemyPos); //プレイヤーと敵の距離を取得
+
 	}
 
 	public void Attack(){
 		
 		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
 			
-			float dis = Vector3.Distance (playermover.movingPos, enemymover.enemyPos); //プレイヤーと敵の距離を取得
 
 			if (dis <= 3f) {
 				int damage = PlayerStatus.playerPower + Random.Range (-3, 2) ;

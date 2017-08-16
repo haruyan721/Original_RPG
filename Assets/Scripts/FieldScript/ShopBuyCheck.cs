@@ -52,9 +52,10 @@ public class ShopBuyCheck : MonoBehaviour {
 	}
 
 	public void Buy(){
-		PlayerStatus.gold -= price;
+
 		ItemTankScript.potionNum++;
 		BuyCheck ();
+		PlayerStatus.gold -= price;
 	}
 
 	public void DontBuy(){
