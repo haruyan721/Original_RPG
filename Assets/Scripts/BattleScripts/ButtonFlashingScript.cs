@@ -9,10 +9,12 @@ public class ButtonFlashingScript : MonoBehaviour {
 	float changeSpeed = 0.02f;
 	float red = 1;
 	int changeCheck;
+	string checkName;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Player");
 		playerAttacker = player.GetComponent<PlayerAttacker> ();
+		checkName = transform.name;
 		//red = GetComponent<Image> ().color.r;
 	}
 
@@ -23,9 +25,35 @@ public class ButtonFlashingScript : MonoBehaviour {
 		}
 
 		Debug.Log (red);
-
-		if(playerAttacker.dis <= 3f){
-			GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+		switch (checkName) {
+		case "Atack":
+			if (playerAttacker.dis <= 3f) {
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			else {
+				red = 1f;
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			break;
+		case "Skill1":
+			if (playerAttacker.dis <= 6f) {
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			else {
+				
+				red = 1f;
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			break;
+		case "Skill2":
+			if (playerAttacker.dis <= 4f) {
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			else {
+				red = 1f;
+				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+			}
+			break;
 		}
 
 		/*if (playerAttacker.dis <= 3f) {
@@ -56,9 +84,5 @@ public class ButtonFlashingScript : MonoBehaviour {
 				red += changeSpeed * Time.deltaTime;
 			}*/
 
-		else {
-			Debug.Log ("stay");
-			red = 1f;
-		}
 	}
 }
