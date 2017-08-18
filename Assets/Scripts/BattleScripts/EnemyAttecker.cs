@@ -9,14 +9,16 @@ public class EnemyAttecker : MonoBehaviour {
 	EnemyStatus enemyStatus;
 	GameObject player;
 	GameObject turnManagement;
+	AudioSource audio;
 	public TurnManager turnManager;
 	public PlayerMover playermover;
 	public EnemyMover enemyMover;
 	public GameObject hitEffect;
+	public AudioClip enemyAttackSound;
 
 	// Use this for initialization
 	void Start () {
-		
+		audio = GetComponent<AudioSource> ();
 		turnManagement = GameObject.Find("TurnManagement");
 		player = GameObject.Find ("Player");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
@@ -35,6 +37,7 @@ public class EnemyAttecker : MonoBehaviour {
 			float dis = Vector3.Distance (playermover.movingPos, enemyMover.enemyPos);
 			if(dis <= 3f && enemyMover.enemyComandcheck == 0){
 				int damage = enemyStatus.enemyPower + Random.Range (-2, 2);
+				audio.PlayOneShot (enemyAttackSound);
 				Instantiate (hitEffect, player.transform.position, player.transform.rotation);
 				playerStatus.HPDamage (damage);
 			}

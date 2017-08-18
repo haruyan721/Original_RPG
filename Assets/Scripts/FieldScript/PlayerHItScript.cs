@@ -47,7 +47,7 @@ public class PlayerHItScript : MonoBehaviour {
 			fadeManager.fadeName = "Town1In";
 			fadePanel.SetActive (true);
 			fadeManager.changeType = 1;
-			playerFieldMoveScript.townMode = 1;
+			//playerFieldMoveScript.townMode = 1;
 		}
 		if (col.gameObject.tag == "Town1Out") {
 			playerFieldMoveScript.moveStop = 1;
@@ -56,7 +56,7 @@ public class PlayerHItScript : MonoBehaviour {
 			fadeManager.fadeName = "Town1Out";
 			fadePanel.SetActive (true);
 			fadeManager.changeType = 1;
-			playerFieldMoveScript.townMode = 0;
+			//playerFieldMoveScript.townMode = 0;
 		}
 	}
 }

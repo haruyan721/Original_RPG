@@ -10,7 +10,7 @@ public class SkillWindowPopup : MonoBehaviour {
 	GameObject nextButton;
 	TurnManager turnManager;
 	PlayerMover playerMover;
-	int popUpcheck;
+	public int popUpcheck;
 
 	// Use this for initialization
 	void Start () {

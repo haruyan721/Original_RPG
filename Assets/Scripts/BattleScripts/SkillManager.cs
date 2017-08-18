@@ -8,8 +8,11 @@ public class SkillManager : MonoBehaviour {
 	EnemyMover enemyMover;
 	EnemyStatus enemyStatus;
 	Rigidbody enemyRigidbody;
+	AudioSource audio;
 	public GameObject flameEffect;
 	public GameObject windEffect;
+	public AudioClip skillSound1;
+	public AudioClip skillSound2;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,7 @@ public class SkillManager : MonoBehaviour {
 			enemy = GameObject.Find("Battle_Boss(Clone)"); //敵を取得
 			break;
 		}
+		audio = GetComponent<AudioSource> ();
 		enemyStatus = enemy.GetComponent<EnemyStatus> ();
 		enemyMover = enemy.GetComponent<EnemyMover> ();
 		enemyRigidbody = enemy.GetComponent<Rigidbody> ();
@@ -41,6 +45,7 @@ public class SkillManager : MonoBehaviour {
 			PlayerStatus.playerMp -= 3;
 			int damage;
 			damage = PlayerStatus.playerPower + Random.Range (4, 7);
+			audio.PlayOneShot (skillSound1,0.8f);
 			Instantiate (flameEffect, enemy.transform.position, enemy.transform.rotation);
 			enemyStatus.EnemyDamage (damage);
 			playermover.playercomandcheck = 1;
@@ -54,7 +59,6 @@ public class SkillManager : MonoBehaviour {
 			int damage;
 			damage = PlayerStatus.playerPower + Random.Range (1, 4);
 			enemyStatus.EnemyDamage (damage);
-
 			enemyRigidbody.constraints = RigidbodyConstraints.None;
 			enemyRigidbody.constraints = RigidbodyConstraints.FreezePositionY |
 				RigidbodyConstraints.FreezeRotationX |
@@ -62,7 +66,7 @@ public class SkillManager : MonoBehaviour {
 			enemy.transform.LookAt (transform.position);
 			enemy.transform.Rotate (new Vector3 (0, 180, 0));
 			enemyRigidbody.velocity = transform.forward * Random.Range (20f, 30f);
-
+			audio.PlayOneShot (skillSound2);
 			Instantiate (windEffect, enemy.transform.position, enemy.transform.rotation);
 			playermover.playercomandcheck = 1;
 		}

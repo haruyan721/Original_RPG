@@ -9,12 +9,14 @@ public class PlayerAttacker : MonoBehaviour {
 	PlayerMover playermover;
 	EnemyMover enemymover;
 	EnemyStatus enemyStatus;
+	SkillWindowPopup skillWindowPopUp;
 	GameObject turnManagement; //ターンを管理するオブジェクト
-	public TurnManager turnManager; //TurnManagerを入れる用
+	AudioSource audio;
+	TurnManager turnManager; //TurnManagerを入れる用
+	public AudioClip attackSound1;
 	public float dis;
 
 	void Start () {
-		
 		player = GameObject.Find ("Player");
 		playermover = player.GetComponent<PlayerMover> (); //プレイヤーの場所を記したスクリプトを取得
 		switch (PlayerFieldMoveScript.battleEnemy) {
@@ -28,8 +30,10 @@ public class PlayerAttacker : MonoBehaviour {
 			enemy = GameObject.Find("Battle_Boss(Clone)"); //敵を取得
 			break;
 		}
+		audio = player.GetComponent<AudioSource> ();
 		enemymover = enemy.GetComponent<EnemyMover> (); //敵の場所を記したスクリプトを取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスを取得
+		skillWindowPopUp = player.GetComponent<SkillWindowPopup>();
 		turnManagement = GameObject.Find ("TurnManagement"); //ターン用のオブジェクトを取得
 		turnManager = turnManagement.GetComponent<TurnManager> (); //turnManagerにTurnManagerを代入
 
@@ -48,7 +52,11 @@ public class PlayerAttacker : MonoBehaviour {
 			if (dis <= 3f) {
 				int damage = PlayerStatus.playerPower + Random.Range (-3, 2) ;
 				enemyStatus.EnemyDamage (damage);
+				audio.PlayOneShot (attackSound1);
 				Instantiate (hitEffect, enemy.transform.position, enemy.transform.rotation);
+				if (skillWindowPopUp.popUpcheck == 1) {
+					skillWindowPopUp.PopUpDown();
+				}
 				playermover.playercomandcheck = 1;
 			}
 

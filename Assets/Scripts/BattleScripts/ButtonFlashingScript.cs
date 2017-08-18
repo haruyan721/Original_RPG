@@ -23,8 +23,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 		if (red < 0.3 || red > 1) {
 			changeSpeed  = changeSpeed * -1;
 		}
-
-		Debug.Log (red);
+			
 		switch (checkName) {
 		case "Atack":
 			if (playerAttacker.dis <= 3f) {

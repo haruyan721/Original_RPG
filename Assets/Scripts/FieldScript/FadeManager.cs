@@ -63,6 +63,7 @@ public class FadeManager : MonoBehaviour {
 				switch (fadeName) {
 
 				case "BattleStart":
+
 					changeType = 0;
 					fadeSpeed = 0.1f;
 					BattleStart ();
@@ -79,12 +80,14 @@ public class FadeManager : MonoBehaviour {
 					player.transform.position = movePos;
 					fadeSpeed = 0.1f;
 					changeType = 2;
+					playerFieldMoveScript.townMode = 1;
 					break;
 
 				case "Town1Out":
 					player.transform.position = movePos;
 					fadeSpeed = 0.1f;
 					changeType = 2;
+					playerFieldMoveScript.townMode = 0;
 					break;
 
 				case "GameOver":
