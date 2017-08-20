@@ -27,7 +27,7 @@ public class ItemUser : MonoBehaviour {
 		
 	}
 	public void PotionUse(){
-		if (playerStatus.noStatusMax == 1) {
+		if (playerStatus.noHpMax == 1) {
 			if (SceneManager.GetActiveScene ().name == "Battle") {
 				if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
 					itemWindowPopUp.ItemPopUpDown ();
@@ -36,6 +36,20 @@ public class ItemUser : MonoBehaviour {
 			}
 			if (SceneManager.GetActiveScene ().name == "Field") {
 				itemManager.Potion ();
+			}
+		}
+	}
+
+	public void TabletUse(){
+		if (playerStatus.noMpMax == 1) {
+			if (SceneManager.GetActiveScene ().name == "Battle") {
+				if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
+					itemWindowPopUp.ItemPopUpDown ();
+					itemManager.Tablet ();
+				}
+			}
+			if (SceneManager.GetActiveScene ().name == "Field") {
+				itemManager.Tablet ();
 			}
 		}
 	}

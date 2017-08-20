@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerHItScript : MonoBehaviour {
 	PlayerFieldMoveScript playerFieldMoveScript;
 	GameObject fadePanel;
+	GameObject menuButton;
+	MenuPopUpScript menuPopUpScript;
 	FadeManager fadeManager;
 	// Use this for initialization
 
 	void Awake(){
 		fadePanel = GameObject.Find ("FadePanel");
+		menuButton = GameObject.Find ("MenuButton");
+		menuPopUpScript = menuButton.GetComponent<MenuPopUpScript> ();
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
 		playerFieldMoveScript = GetComponent<PlayerFieldMoveScript> ();
 	}
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -23,22 +26,26 @@ public class PlayerHItScript : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Enemy") {
-			playerFieldMoveScript.moveStop = 1;
-			PlayerFieldMoveScript.mypos = this.transform.position;
-			PlayerFieldMoveScript.battleEnemy = 1;
-			FadeManager.fadeSpeed = 0.05f;
-			fadeManager.fadeName = "BattleStart"; 
-			fadePanel.SetActive (true);
-			fadeManager.changeType = 1;
+			if (menuPopUpScript.popcheck == 0) {
+				playerFieldMoveScript.moveStop = 1;
+				PlayerFieldMoveScript.mypos = this.transform.position;
+				PlayerFieldMoveScript.battleEnemy = 1;
+				FadeManager.fadeSpeed = 0.05f;
+				fadeManager.fadeName = "BattleStart"; 
+				fadePanel.SetActive (true);
+				fadeManager.changeType = 1;
+			}
 		}
 		if (col.gameObject.tag == "Enemy2") {
-			playerFieldMoveScript.moveStop = 1;
-			PlayerFieldMoveScript.mypos = this.transform.position;
-			PlayerFieldMoveScript.battleEnemy = 2;
-			FadeManager.fadeSpeed = 0.05f;
-			fadeManager.fadeName = "BattleStart"; 
-			fadePanel.SetActive (true);
-			fadeManager.changeType = 1;
+			if (menuPopUpScript.popcheck == 0) {
+				playerFieldMoveScript.moveStop = 1;
+				PlayerFieldMoveScript.mypos = this.transform.position;
+				PlayerFieldMoveScript.battleEnemy = 2;
+				FadeManager.fadeSpeed = 0.05f;
+				fadeManager.fadeName = "BattleStart"; 
+				fadePanel.SetActive (true);
+				fadeManager.changeType = 1;
+			}
 		}
 		if (col.gameObject.tag == "Town1In") {
 			playerFieldMoveScript.moveStop = 1;

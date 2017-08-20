@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuPopUpScript : MonoBehaviour {
-	int popcheck = 0;
+	public int popcheck = 0;
 	GameObject menuWindows;
 	GameObject player;
 	GameObject itemButton;

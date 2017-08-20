@@ -10,12 +10,15 @@ public class ItemWindowPopUp : MonoBehaviour {
 	GameObject itemWindow;
 	GameObject nextButton;
 	GameObject potion;
+	GameObject tablet;
 	GameObject menusPlayer;
 	Text potionTextWindow;
+	Text tabletTextWindow;
 	TurnManager turnManager;
 	PlayerMover playerMover;
 	public int itemPopUpCheck;
 	string potionNumSentence;
+	string tabletNumSentence;
 	// Use this for initialization
 
 	void Start () {
@@ -24,15 +27,19 @@ public class ItemWindowPopUp : MonoBehaviour {
 			itemWindow = GameObject.Find ("ItemWindow");
 			nextButton = GameObject.Find ("Next");
 			potion = GameObject.Find ("Potion");
+			tablet = GameObject.Find ("Tablet");
 			turnManager = turnManagement.GetComponent<TurnManager> ();
 			playerMover = GetComponent<PlayerMover> ();
 			potionTextWindow = potion.GetComponent<Text> ();
+			tabletTextWindow = tablet.GetComponent<Text> ();
 			itemWindow.SetActive (false);
 		} else if (SceneManager.GetActiveScene ().name == "Field") {
 			menusPlayer = GameObject.Find ("MenusPlayer");
 			itemWindow = GameObject.Find ("ItemWindow");
 			potion = GameObject.Find ("MenuPotion");
+			tablet = GameObject.Find ("MenuTablet");
 			potionTextWindow = potion.GetComponent<Text> ();
+			tabletTextWindow = tablet.GetComponent<Text> ();
 			itemWindow.SetActive (false);
 		}
 	}
@@ -45,6 +52,11 @@ public class ItemWindowPopUp : MonoBehaviour {
 			if (ItemTankScript.potionNum == 0) {
 				potion.SetActive (false);
 			}
+			tabletNumSentence = "Tablet : " + ItemTankScript.tabletNum.ToString ();
+			tabletTextWindow.text = tabletNumSentence;
+			if (ItemTankScript.tabletNum == 0) {
+				tablet.SetActive (false);
+			}
 		}
 
 	}
@@ -54,9 +66,14 @@ public class ItemWindowPopUp : MonoBehaviour {
 				if (ItemTankScript.potionNum == 0) {
 					potion.SetActive (false);
 				}
+				if (ItemTankScript.tabletNum == 0) {
+					tablet.SetActive (false);
+				}
 				itemWindow.SetActive (true);
-				string potionNumSentence = "Potion : " + ItemTankScript.potionNum.ToString ();
+				potionNumSentence = "Potion : " + ItemTankScript.potionNum.ToString ();
 				potionTextWindow.text = potionNumSentence;
+				tabletNumSentence = "Tablet : " + ItemTankScript.tabletNum.ToString ();
+				tabletTextWindow.text = tabletNumSentence;
 				nextButton.SetActive (false);
 				itemPopUpCheck++;
 			} else if (itemPopUpCheck == 1 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {

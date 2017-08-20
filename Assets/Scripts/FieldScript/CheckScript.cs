@@ -8,12 +8,14 @@ public class CheckScript : MonoBehaviour {
 	GameObject talkTextWindow;
 	GameObject player;
 	GameObject fadePanel;
+	GameObject restCheckFade;
 	public Text talkText;
 	NPCSentenceScript npcSentenceScript;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	FadeManager fadeManager;
 	ShopPopUpScript shopPopUpScript;
-	PlayerStatus playerStatus;
+	//PlayerStatus playerStatus;
+	RestCheckScript restCheckScript;
 	int talkCheck;
 	// Use this for initialization
 	void Awake(){
@@ -21,13 +23,15 @@ public class CheckScript : MonoBehaviour {
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
 		player = GameObject.Find ("Player");
 		shopPopUpScript = player.GetComponent<ShopPopUpScript> ();
+		restCheckFade = GameObject.Find ("RestCheckFade");
+		restCheckScript = restCheckFade.GetComponent<RestCheckScript> ();
 	}
 	void Start () {
 		talkWindow = GameObject.Find ("TalkPanel");
 		talkTextWindow = GameObject.Find ("TalkText");
 		talkText = talkTextWindow.GetComponent<Text> ();
 		playerFieldMoveScript = GetComponent<PlayerFieldMoveScript> ();
-		playerStatus = GetComponent<PlayerStatus> ();
+		//playerStatus = GetComponent<PlayerStatus> ();
 		talkWindow.SetActive (false);
 	}
 	
@@ -37,11 +41,8 @@ public class CheckScript : MonoBehaviour {
 	}
 
 	void OnCollisionStay (Collision col){
-		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P) && PlayerStatus.gold >= 8 && playerStatus.noStatusMax == 1) {
-			PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;
-			PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;
-			PlayerStatus.gold -= 8;
-			Debug.Log ("Rest");
+		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P) /*&& PlayerStatus.gold >= 8 && playerStatus.noStatusMax == 1*/) {
+			restCheckScript.RestCheck ();
 		}
 		if (col.gameObject.tag == "NPC" && Input.GetKeyDown (KeyCode.P)) {
 			if (talkCheck == 0) {
@@ -74,7 +75,6 @@ public class CheckScript : MonoBehaviour {
 			}
 		}
 		if (col.gameObject.tag == "Trader1" && Input.GetKeyDown (KeyCode.P)) {
-			Debug.Log ("ok");
 			if (talkCheck == 0 && shopPopUpScript.shopPopUpCheck == 0) {
 				npcSentenceScript = col.gameObject.GetComponent<NPCSentenceScript>();
 				talkText.text = npcSentenceScript.InSentence ();

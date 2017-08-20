@@ -36,4 +36,25 @@ public class ItemManager : MonoBehaviour {
 			}
 		}
 	}
+	public void Tablet(){
+		if (SceneManager.GetActiveScene ().name == "Battle") {
+			if (ItemTankScript.tabletNum > 0) {
+				ItemTankScript.tabletNum--;
+				PlayerStatus.playerMp += 20;
+				if (PlayerStatus.playerMp > PlayerStatus.maxPlayerMp) {
+					PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;			
+				}
+				playermover.playercomandcheck = 1;
+			}
+		}
+		if (SceneManager.GetActiveScene ().name == "Field") {
+			if(ItemTankScript.tabletNum > 0){
+				ItemTankScript.tabletNum--;
+				PlayerStatus.playerMp += 20;
+				if (PlayerStatus.playerMp > PlayerStatus.maxPlayerMp) {
+					PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;	
+				}
+			}
+		}
+	}
 }

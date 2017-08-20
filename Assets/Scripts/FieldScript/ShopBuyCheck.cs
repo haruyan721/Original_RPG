@@ -7,26 +7,35 @@ public class ShopBuyCheck : MonoBehaviour {
 	GameObject buyCheckFade;
 	GameObject buyThingText;
 	GameObject player;
+	GameObject shopPanel;
 	Text buyThingSentence;
 	public int buyCheckPopUp = 0;
 	int price;
-	string nameCheck;
+	public int buyItemCheck;
+	//string nameCheck;
 	string buyThingName;
 	CheckScript checkScript;
+	ItemPriceScript itemPriceScript;
 	// Use this for initialization
 	void Start () {
 		buyCheckFade = GameObject.Find ("BuyCheckFade");
 		buyThingText = GameObject.Find ("BuyThingText");
 		player = GameObject.Find ("Player");
+		shopPanel = GameObject.Find ("ShopPanel");
 		buyThingSentence = buyThingText.GetComponent<Text> ();
+		itemPriceScript = shopPanel.GetComponent<ItemPriceScript> ();
 		checkScript = player.GetComponent<CheckScript> ();
-		nameCheck = transform.name;
+		/*nameCheck = transform.name;
 		switch (nameCheck) {
 		case "PotionBuy":
 			buyThingName = "Potion";
 			price = 12;
 			break;
-		}
+		case "TabletBuy":
+			buyThingName = "Tablet";
+			price = 16;
+			break;
+		}*/
 		buyCheckFade.SetActive (false);
 
 	}
@@ -34,13 +43,32 @@ public class ShopBuyCheck : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		switch (buyItemCheck) {
+		case 1:
+			buyThingName = "Potion";
+			price = 12;
+			break;
+		case 2:
+			buyThingName = "Tablet";
+			price = 16;
+			break;
+		}
+	}
+
+	public void PosionBuy(){
+		buyItemCheck = 1;
+		Invoke ("BuyCheck", 0.01f);
+	}
+	public void TabletBuy(){
+		buyItemCheck = 2;
+		Invoke ("BuyCheck", 0.01f);
 	}
 
 	public void BuyCheck(){
 		if (price < PlayerStatus.gold) {
 			if (buyCheckPopUp == 0) {
-				buyThingSentence.text = buyThingName;
 				buyCheckPopUp = 1;
+				buyThingSentence.text = buyThingName;
 				buyCheckFade.SetActive (true);
 			} else if (buyCheckPopUp == 1) {
 				buyCheckPopUp = 0;
@@ -52,8 +80,14 @@ public class ShopBuyCheck : MonoBehaviour {
 	}
 
 	public void Buy(){
-
-		ItemTankScript.potionNum++;
+		switch (buyItemCheck) {
+		case 1:
+			ItemTankScript.potionNum++;
+			break;
+		case 2:
+			ItemTankScript.tabletNum++;
+			break;
+		}
 		BuyCheck ();
 		PlayerStatus.gold -= price;
 	}
