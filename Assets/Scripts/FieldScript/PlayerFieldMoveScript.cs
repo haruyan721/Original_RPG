@@ -13,6 +13,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	public static int sceneStart = 0;
 	public int moveStop = 0;
 	GameObject fadePanel;
+	GameObject mobileJoystick;
 	FadeManager fadeManager;
 	PadClickCheck padClickCheck;
 
@@ -26,6 +27,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		}
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");
+		//mobileJoystick = GameObject.Find ("MobileJoystick");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
 		padClickCheck = GetComponent<PadClickCheck> ();
 	}
@@ -43,13 +45,17 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (moveStop == 1) {
+			//mobileJoystick.SetActive (false);		
+		}else if(moveStop == 0){
+			//mobileJoystick.SetActive (true);	
+		}
 
 
 
 	}
 	void FixedUpdate(){
-		/*if (moveStop == 0) {
+		if (moveStop == 0) {
 			if (Input.GetKey (KeyCode.W)) {
 				transform.position += new Vector3 (0, 0, moveSpeed) * Time.deltaTime;
 			}
@@ -65,10 +71,10 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 			if (Input.GetKey (KeyCode.D)) {
 				transform.position += new Vector3 (moveSpeed, 0, 0) * Time.deltaTime;
 			}
-		}*/
-		if (padClickCheck.padClick == 1 && moveStop == 0) {
-			transform.position += new Vector3 (CrossPlatformInputManager.GetAxisRaw ("Horizontal") * 10, 0, CrossPlatformInputManager.GetAxisRaw ("Vertical") * 10) * Time.deltaTime;
 		}
+		/*if (padClickCheck.padClick == 1 && moveStop == 0) {
+			transform.position += new Vector3 (CrossPlatformInputManager.GetAxisRaw ("Horizontal") * 15, 0, CrossPlatformInputManager.GetAxisRaw ("Vertical") * 15) * Time.deltaTime;
+		}*/
 	}
 
 	/*void OnTriggerEnter(Collider col){

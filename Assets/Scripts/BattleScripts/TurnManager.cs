@@ -111,9 +111,9 @@ public class TurnManager : MonoBehaviour {
 		}
 
 		if (turncount == playerTurnNum && battleEndCheck == 0) {
-			battleText = "your turn"; 
+			battleText = "あなたのターン"; 
 		} else {
-			battleText = "enemy turn"; 
+			battleText = "敵のターン"; 
 		}
 		textWindow.text = battleText;
 

@@ -60,9 +60,9 @@ public class MenuTextScript : MonoBehaviour {
 		hpSentence = "HP: " + PlayerStatus.playerHp.ToString () + " / " + PlayerStatus.maxPlayerHp.ToString ();
 		mpSentence = "MP: " + PlayerStatus.playerMp.ToString () + " / " + PlayerStatus.maxPlayerMp.ToString ();
 		powerTotal = PlayerStatus.playerPower + weaponManager.addPower;
-		powerSentence = "Power: " + powerTotal.ToString ();
-		defenceSentence = "Defence: " + PlayerStatus.playerDefense.ToString ();
-		speedSentence = "Speed: " + PlayerStatus.playerSpeed.ToString ();
+		powerSentence = "攻撃力: " + powerTotal.ToString ();
+		defenceSentence = "防御力: " + PlayerStatus.playerDefense.ToString ();
+		speedSentence = "素早さ: " + PlayerStatus.playerSpeed.ToString ();
 		goldSentence = PlayerStatus.gold.ToString() + "B";
 		levelText.text = levelSentence;
 		hpText.text = hpSentence;

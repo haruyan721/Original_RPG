@@ -7,7 +7,7 @@ public class ShopBuyCheck : MonoBehaviour {
 	GameObject buyCheckFade;
 	GameObject buyThingText;
 	GameObject player;
-	GameObject shopPanel;
+	//GameObject shopPanel;
 	Text buyThingSentence;
 	public int buyCheckPopUp = 0;
 	int price;
@@ -20,7 +20,7 @@ public class ShopBuyCheck : MonoBehaviour {
 		buyCheckFade = GameObject.Find ("BuyCheckFade");
 		buyThingText = GameObject.Find ("BuyThingText");
 		player = GameObject.Find ("Player");
-		shopPanel = GameObject.Find ("ShopPanel");
+		//shopPanel = GameObject.Find ("ShopPanel");
 		buyThingSentence = buyThingText.GetComponent<Text> ();
 		checkScript = player.GetComponent<CheckScript> ();
 		/*nameCheck = transform.name;
