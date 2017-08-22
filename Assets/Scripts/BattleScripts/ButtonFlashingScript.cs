@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonFlashingScript : MonoBehaviour {
 	GameObject player;
 	PlayerAttacker playerAttacker;
+	WeaponManager weaponManager;
 	float changeSpeed = 0.02f;
 	float red = 1;
 	int changeCheck;
@@ -14,6 +15,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find ("Player");
 		playerAttacker = player.GetComponent<PlayerAttacker> ();
+		weaponManager = player.GetComponent<WeaponManager> ();
 		checkName = transform.name;
 		//red = GetComponent<Image> ().color.r;
 	}
@@ -26,7 +28,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 			
 		switch (checkName) {
 		case "Atack":
-			if (playerAttacker.dis <= 3f) {
+			if (playerAttacker.dis <= weaponManager.attackRange) {
 				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
 			}
 			else {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerFieldMoveScript : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 	public int moveStop = 0;
 	GameObject fadePanel;
 	FadeManager fadeManager;
+	PadClickCheck padClickCheck;
 
 
 	// Use this for initialization
@@ -25,6 +27,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
+		padClickCheck = GetComponent<PadClickCheck> ();
 	}
 
 
@@ -46,7 +49,7 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 	}
 	void FixedUpdate(){
-		if (moveStop == 0) {
+		/*if (moveStop == 0) {
 			if (Input.GetKey (KeyCode.W)) {
 				transform.position += new Vector3 (0, 0, moveSpeed) * Time.deltaTime;
 			}
@@ -62,6 +65,9 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 			if (Input.GetKey (KeyCode.D)) {
 				transform.position += new Vector3 (moveSpeed, 0, 0) * Time.deltaTime;
 			}
+		}*/
+		if (padClickCheck.padClick == 1 && moveStop == 0) {
+			transform.position += new Vector3 (CrossPlatformInputManager.GetAxisRaw ("Horizontal") * 10, 0, CrossPlatformInputManager.GetAxisRaw ("Vertical") * 10) * Time.deltaTime;
 		}
 	}
 

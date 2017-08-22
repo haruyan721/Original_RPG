@@ -15,7 +15,6 @@ public class ShopBuyCheck : MonoBehaviour {
 	//string nameCheck;
 	string buyThingName;
 	CheckScript checkScript;
-	ItemPriceScript itemPriceScript;
 	// Use this for initialization
 	void Start () {
 		buyCheckFade = GameObject.Find ("BuyCheckFade");
@@ -23,7 +22,6 @@ public class ShopBuyCheck : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		shopPanel = GameObject.Find ("ShopPanel");
 		buyThingSentence = buyThingText.GetComponent<Text> ();
-		itemPriceScript = shopPanel.GetComponent<ItemPriceScript> ();
 		checkScript = player.GetComponent<CheckScript> ();
 		/*nameCheck = transform.name;
 		switch (nameCheck) {

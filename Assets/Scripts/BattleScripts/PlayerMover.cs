@@ -41,7 +41,7 @@ public class PlayerMover : MonoBehaviour {
 		moveRange.transform.position = originalPos;
 
 		originalDis = Vector3.Distance (originalPos, movingPos);
-		if (originalDis >= 6f) {
+		if (originalDis >= 9f) {
 			transform.position = originalPos;
 			moveRange.transform.position = originalPos;
 		}

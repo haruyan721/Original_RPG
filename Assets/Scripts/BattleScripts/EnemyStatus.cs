@@ -19,7 +19,7 @@ public class EnemyStatus : MonoBehaviour {
 			enemySpeed = 8;
 			enemyPower = 6;
 			enemyHp = 12;
-			enemyMoveRange = 25;
+			enemyMoveRange = 15;
 			break;
 		case 2:
 			enemySpeed = 8;

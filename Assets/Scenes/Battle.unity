@@ -1511,6 +1511,7 @@ GameObject:
   - component: {fileID: 818504908}
   - component: {fileID: 818504907}
   - component: {fileID: 818504909}
+  - component: {fileID: 818504910}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1621,7 +1622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7938f9b44534e1fb83586b914709e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noStatusMax: 0
+  noHpMax: 0
+  noMpMax: 0
 --- !u!114 &818504898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,6 +1838,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &818504910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7aa8334b1da4696bbd73db855e289f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: 
+  addPower: 0
+  attackRange: 0
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +2011,7 @@ Transform:
   m_GameObject: {fileID: 890137413}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_Children: []
   m_Father: {fileID: 818504894}
   m_RootOrder: 1
@@ -4166,7 +4182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.26359108, y: 0.6414226}
   m_AnchorMax: {x: 0.933, y: 0.82730365}
-  m_AnchoredPosition: {x: 2.11475, y: -35.418415}
+  m_AnchoredPosition: {x: 2.11475, y: -35.41842}
   m_SizeDelta: {x: 8.882099, y: 31.894379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972272445

@@ -37,6 +37,7 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetInt ("townModeSaveDate", playerFieldMoveScript.townMode);
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
+		PlayerPrefs.SetInt ("equWeaponSaveDate", WeaponManager.weaponNum);
 
 	}
 }

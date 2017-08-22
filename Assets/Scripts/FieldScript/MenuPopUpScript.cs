@@ -6,15 +6,15 @@ public class MenuPopUpScript : MonoBehaviour {
 	public int popcheck = 0;
 	GameObject menuWindows;
 	GameObject player;
-	GameObject itemButton;
 	ItemWindowPopUp itemWindoPopUp;
+	WeaponPopUpScript weaponPopUpScript;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	// Use this for initialization
 	void Awake(){
 		player = GameObject.Find ("Player");
 		menuWindows = GameObject.Find ("MenuPanel");
-		itemButton = GameObject.Find ("ItemButton");
-		itemWindoPopUp = itemButton.GetComponent<ItemWindowPopUp> ();
+		itemWindoPopUp = player.GetComponent<ItemWindowPopUp> ();
+		weaponPopUpScript = player.GetComponent<WeaponPopUpScript> ();
 		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 
 	}
@@ -35,6 +35,9 @@ public class MenuPopUpScript : MonoBehaviour {
 		} else if (popcheck == 1) {
 			if (itemWindoPopUp.itemPopUpCheck == 1) {
 				itemWindoPopUp.ItemPopUpDown ();
+			}
+			if (weaponPopUpScript.weaponPopCheck == 1) {
+				weaponPopUpScript.WeaponPopUp ();
 			}
 			menuWindows.SetActive (false);
 			playerFieldMoveScript.moveStop = 0;

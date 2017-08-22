@@ -10,6 +10,7 @@ public class PlayerAttacker : MonoBehaviour {
 	EnemyMover enemymover;
 	EnemyStatus enemyStatus;
 	SkillWindowPopup skillWindowPopUp;
+	WeaponManager weaponManager;
 	GameObject turnManagement; //ターンを管理するオブジェクト
 	AudioSource audio;
 	TurnManager turnManager; //TurnManagerを入れる用
@@ -31,6 +32,7 @@ public class PlayerAttacker : MonoBehaviour {
 			break;
 		}
 		audio = player.GetComponent<AudioSource> ();
+		weaponManager = player.GetComponent<WeaponManager> ();
 		enemymover = enemy.GetComponent<EnemyMover> (); //敵の場所を記したスクリプトを取得
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスを取得
 		skillWindowPopUp = player.GetComponent<SkillWindowPopup>();
@@ -49,8 +51,8 @@ public class PlayerAttacker : MonoBehaviour {
 		if (turnManager.playerTurnNum == turnManager.turncount && playermover.playercomandcheck == 0) {
 			
 
-			if (dis <= 3f) {
-				int damage = PlayerStatus.playerPower + Random.Range (-3, 2) ;
+			if (dis <= weaponManager.attackRange) {
+				int damage = PlayerStatus.playerPower + weaponManager.addPower + Random.Range (-3, 2) ;
 				enemyStatus.EnemyDamage (damage);
 				audio.PlayOneShot (attackSound1);
 				Instantiate (hitEffect, enemy.transform.position, enemy.transform.rotation);

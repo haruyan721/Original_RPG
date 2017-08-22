@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuTextScript : MonoBehaviour {
-	
+	GameObject player;
 	GameObject menuLevelTextWindow;
 	GameObject menuHpTextWindow;
 	GameObject menuMpTextWindow;
@@ -26,10 +26,13 @@ public class MenuTextScript : MonoBehaviour {
 	string defenceSentence;
 	string speedSentence;
 	string goldSentence;
+	int powerTotal;
+	WeaponManager weaponManager;
 
 
 	// Use this for initialization
 	void Awake(){
+		player = GameObject.Find ("Player");
 		menuLevelTextWindow = GameObject.Find("MenuLevelTextWindow");
 		menuHpTextWindow = GameObject.Find("MenuHPTextWindow");
 		menuMpTextWindow = GameObject.Find("MenuMPTextWindow");
@@ -44,6 +47,7 @@ public class MenuTextScript : MonoBehaviour {
 		defenceText = menuDefenceTextWindow.GetComponent<Text> ();
 		speedText = menuSpeedTextWindow.GetComponent<Text> ();
 		goldText = menuGoldTextWindow.GetComponent<Text> ();
+		weaponManager = player.GetComponent<WeaponManager> ();
 	}
 
 	void Start () {
@@ -55,7 +59,8 @@ public class MenuTextScript : MonoBehaviour {
 		levelSentence = "LV: " + PlayerStatus.level.ToString ();
 		hpSentence = "HP: " + PlayerStatus.playerHp.ToString () + " / " + PlayerStatus.maxPlayerHp.ToString ();
 		mpSentence = "MP: " + PlayerStatus.playerMp.ToString () + " / " + PlayerStatus.maxPlayerMp.ToString ();
-		powerSentence = "Power: " + PlayerStatus.playerPower.ToString ();
+		powerTotal = PlayerStatus.playerPower + weaponManager.addPower;
+		powerSentence = "Power: " + powerTotal.ToString ();
 		defenceSentence = "Defence: " + PlayerStatus.playerDefense.ToString ();
 		speedSentence = "Speed: " + PlayerStatus.playerSpeed.ToString ();
 		goldSentence = PlayerStatus.gold.ToString() + "B";

@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - Boss
   - Trader1
+  - Pad
   layers:
   - Default
   - TransparentFX

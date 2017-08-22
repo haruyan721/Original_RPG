@@ -15,10 +15,10 @@ public class LevelUpScript : MonoBehaviour {
 			Debug.Log ("LevelUp!");
 			PlayerStatus.exp = 0;
 			PlayerStatus.level++;
-			PlayerStatus.maxPlayerHp += 5;
-			PlayerStatus.maxPlayerMp += 3;
-			PlayerStatus.playerPower += 3;
-			PlayerStatus.playerDefense += 2;
+			PlayerStatus.maxPlayerHp += 4;
+			PlayerStatus.maxPlayerMp += 2;
+			PlayerStatus.playerPower += 2;
+			PlayerStatus.playerDefense += 1;
 			PlayerStatus.playerSpeed += 1;
 		}
 	}

@@ -16,10 +16,22 @@ public class ItemWindowPopUp : MonoBehaviour {
 	Text tabletTextWindow;
 	TurnManager turnManager;
 	PlayerMover playerMover;
+	WeaponPopUpScript weaponPopUpScript;
 	public int itemPopUpCheck;
 	string potionNumSentence;
 	string tabletNumSentence;
 	// Use this for initialization
+	void Awake(){
+		if (SceneManager.GetActiveScene ().name == "Field") {
+			menusPlayer = GameObject.Find ("MenusPlayer");
+			potion = GameObject.Find ("MenuPotion");
+			tablet = GameObject.Find ("MenuTablet");
+			weaponPopUpScript = GetComponent<WeaponPopUpScript>();
+			potionTextWindow = potion.GetComponent<Text> ();
+			tabletTextWindow = tablet.GetComponent<Text> ();
+			itemWindow = GameObject.Find ("ItemWindow");
+		}
+	}
 
 	void Start () {
 		if (SceneManager.GetActiveScene ().name == "Battle") {
@@ -34,12 +46,6 @@ public class ItemWindowPopUp : MonoBehaviour {
 			tabletTextWindow = tablet.GetComponent<Text> ();
 			itemWindow.SetActive (false);
 		} else if (SceneManager.GetActiveScene ().name == "Field") {
-			menusPlayer = GameObject.Find ("MenusPlayer");
-			itemWindow = GameObject.Find ("ItemWindow");
-			potion = GameObject.Find ("MenuPotion");
-			tablet = GameObject.Find ("MenuTablet");
-			potionTextWindow = potion.GetComponent<Text> ();
-			tabletTextWindow = tablet.GetComponent<Text> ();
 			itemWindow.SetActive (false);
 		}
 	}
@@ -82,14 +88,16 @@ public class ItemWindowPopUp : MonoBehaviour {
 				itemPopUpCheck--;
 			}
 		} else if (SceneManager.GetActiveScene ().name == "Field") {
-			if(itemPopUpCheck == 0){
-				menusPlayer.SetActive (false);
-				itemWindow.SetActive (true);
-				itemPopUpCheck++;
-			}else if(itemPopUpCheck == 1){
-				menusPlayer.SetActive (true);
-				itemWindow.SetActive (false);
-				itemPopUpCheck--;
+			if (weaponPopUpScript.weaponPopCheck == 0) {
+				if (itemPopUpCheck == 0) {
+					menusPlayer.SetActive (false);
+					itemWindow.SetActive (true);
+					itemPopUpCheck++;
+				} else if (itemPopUpCheck == 1) {
+					menusPlayer.SetActive (true);
+					itemWindow.SetActive (false);
+					itemPopUpCheck--;
+				}
 			}
 		}
 	}

@@ -5,7 +5,7 @@ public class PlayerStatus : MonoBehaviour {
 
 	public static int level = 1;
 	public static int playerSpeed = 5; //素早さ
-	public static int playerPower = 8; //攻撃力
+	public static int playerPower = 4; //攻撃力
 	public static int playerHp; //HP
 	public static int playerMp; //MP
 	public static int maxPlayerHp = 30; //最大HP
