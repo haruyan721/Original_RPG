@@ -5,22 +5,26 @@ using UnityEngine;
 public class DateSaveScript : MonoBehaviour {
 	GameObject player;
 	PlayerFieldMoveScript playerFieldMoveScript;
+	AudioSource audio;
+	public AudioClip savaSound;
 
 	// Use this for initialization
 	void Start () {
 		//PlayerPrefs.DeleteKey("saveCheck");
 		player = GameObject.Find("Player");
 		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
+		audio = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.M)) {
+		/*if (Input.GetKeyDown (KeyCode.M)) {
 			PlayerPrefs.DeleteAll ();
-		}
+		}*/
 	}
 
 	public void Save(){
+		audio.PlayOneShot (savaSound);
 		PlayerPrefs.SetInt ("saveCheck", 1);
 		PlayerPrefs.SetInt ("levelSaveDate", PlayerStatus.level);
 		PlayerPrefs.SetInt ("hpSaveDate", PlayerStatus.playerHp);
@@ -38,6 +42,5 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
 		PlayerPrefs.SetInt ("equWeaponSaveDate", WeaponManager.weaponNum);
-
 	}
 }

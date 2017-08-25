@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelUpScript : MonoBehaviour {
-
+	public int levelUpCheck;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,7 +11,9 @@ public class LevelUpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (levelUpCheck);
 		if (PlayerStatus.exp >= PlayerStatus.level * 50) {
+			levelUpCheck = 1;
 			Debug.Log ("LevelUp!");
 			PlayerStatus.exp = 0;
 			PlayerStatus.level++;

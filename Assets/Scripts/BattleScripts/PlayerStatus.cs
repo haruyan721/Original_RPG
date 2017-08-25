@@ -18,6 +18,16 @@ public class PlayerStatus : MonoBehaviour {
 
 
 	void Awake(){
+		if (PlayerPrefs.GetInt ("saveCheck") == 0 && PlayerFieldMoveScript.sceneStart == 0) {
+			level = 1;
+			playerSpeed = 5; //素早さ
+			playerPower = 4; //攻撃力
+			maxPlayerHp = 30; //最大HP
+			maxPlayerMp = 12; //最大MP
+			playerDefense =  3; //防御力
+			exp = 0; //経験値
+			gold = 0; //お金
+		}
 		
 		if(PlayerFieldMoveScript.sceneStart == 0){
 			playerHp = maxPlayerHp;

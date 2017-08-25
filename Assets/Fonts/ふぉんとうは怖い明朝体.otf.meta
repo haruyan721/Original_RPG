@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0294846ecd409499cb80c16ee8531006
+timeCreated: 1503535694
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 07ReallyScaryMinchotai
+  fontNames:
+  - 07ReallyScaryMinchotai
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

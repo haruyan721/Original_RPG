@@ -6,10 +6,13 @@ public class RestCheckScript : MonoBehaviour {
 	GameObject player;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	GameObject noMoneyText;
+	AudioSource audio;
+	public AudioClip restSound;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Player");
 		noMoneyText = GameObject.Find ("NoMoneyText");
+		audio = player.GetComponent<AudioSource> ();
 		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 		this.gameObject.SetActive (false);
 	}
@@ -30,6 +33,8 @@ public class RestCheckScript : MonoBehaviour {
 			PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;
 			PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;
 			this.gameObject.SetActive (false);
+			audio.PlayOneShot (restSound);
+
 		} else if (PlayerStatus.gold < 8) {
 			noMoneyText.SetActive (true);
 		}

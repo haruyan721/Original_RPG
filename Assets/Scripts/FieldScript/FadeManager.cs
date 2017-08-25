@@ -8,10 +8,8 @@ public class FadeManager : MonoBehaviour {
 	GameObject player;
 	GameObject turnManagement;
 	GameObject fadePanel;
-	GameObject reStartText;
 	PlayerFieldMoveScript playerFieldMoveScript;
 	TurnManager turnManager;
-	ReStartScript reStartScript;
 	public static float fadeSpeed = 0.01f;
 	float alfa = 0;
 	float red,green,blue;
@@ -34,21 +32,21 @@ public class FadeManager : MonoBehaviour {
 			player = GameObject.Find ("Player");
 			playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 		}
-
-		if (SceneManager.GetActiveScene ().name == "Field" && PlayerFieldMoveScript.sceneStart == 0) {
-			this.gameObject.SetActive (false);
-		} else if (SceneManager.GetActiveScene ().name == "Field" && PlayerFieldMoveScript.sceneStart == 1) {
+			
+		if (SceneManager.GetActiveScene ().name == "Field") {
 			alfa = 1;
 			GetComponent<Image> ().color = new Color (red, green, blue, alfa);
 		}
 		if (SceneManager.GetActiveScene ().name == "GameOver") {
 			alfa = 1;
-			reStartText = GameObject.Find ("ReStartText");
-			reStartScript = reStartText.GetComponent<ReStartScript> ();
 		}
 		if (SceneManager.GetActiveScene ().name == "Clear") {
 			alfa = 1;
 		}
+		if (SceneManager.GetActiveScene ().name == "Title") {
+			alfa = 1;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -102,6 +100,16 @@ public class FadeManager : MonoBehaviour {
 					turnManager.Clear ();
 					break;
 
+				case "Title":
+					changeType = 0;
+					fadeSpeed = 0.1f;
+					SceneManager.LoadScene ("Title");
+					break;
+				case "GoField":
+					changeType = 0;
+					fadeSpeed = 0.1f;
+					SceneManager.LoadScene ("Field");
+					break;
 				}
 			}
 			break;
@@ -138,10 +146,13 @@ public class FadeManager : MonoBehaviour {
 
 				case "GameOver":
 					changeType = 0;
-					reStartScript.reStartCheck = 0;
 					this.gameObject.SetActive (false);
 					break;
 				case "Clear":
+					changeType = 0;
+					this.gameObject.SetActive (false);
+					break;
+				case "Title":
 					changeType = 0;
 					this.gameObject.SetActive (false);
 					break;

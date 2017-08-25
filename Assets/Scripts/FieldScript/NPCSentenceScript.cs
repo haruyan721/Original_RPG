@@ -25,6 +25,9 @@ public class NPCSentenceScript : MonoBehaviour {
 		case "NPC2":
 			textSentence = "やあ、元気かい？";
 			break;
+		case "NPC3":
+			textSentence = "剣より弓の方が遠くから攻撃できるぜ！";
+			break;
 		case "TraderNPC":
 			textSentence = "何を買いますか？";
 			break;

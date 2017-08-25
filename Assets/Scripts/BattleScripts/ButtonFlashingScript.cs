@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonFlashingScript : MonoBehaviour {
 	GameObject player;
 	PlayerAttacker playerAttacker;
+	PlayerMover playerMover;
 	WeaponManager weaponManager;
 	float changeSpeed = 0.02f;
 	float red = 1;
@@ -15,6 +16,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find ("Player");
 		playerAttacker = player.GetComponent<PlayerAttacker> ();
+		playerMover = player.GetComponent<PlayerMover> ();
 		weaponManager = player.GetComponent<WeaponManager> ();
 		checkName = transform.name;
 		//red = GetComponent<Image> ().color.r;
@@ -25,36 +27,37 @@ public class ButtonFlashingScript : MonoBehaviour {
 		if (red < 0.3 || red > 1) {
 			changeSpeed  = changeSpeed * -1;
 		}
-			
-		switch (checkName) {
-		case "Atack":
-			if (playerAttacker.dis <= weaponManager.attackRange) {
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
-			}
-			else {
-				red = 1f;
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
-			}
-			break;
-		case "Skill1":
-			if (playerAttacker.dis <= 6f) {
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
-			}
-			else {
+		if (playerMover.playercomandcheck == 0) {
+			switch (checkName) {
+			case "Atack":
+				if (playerAttacker.dis <= weaponManager.attackRange) {
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				} else {
+					red = 1f;
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				}
+				break;
+			case "Skill1":
+				if (playerAttacker.dis <= 6f) {
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				} else {
 				
-				red = 1f;
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+					red = 1f;
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				}
+				break;
+			case "Skill2":
+				if (playerAttacker.dis <= 4f) {
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				} else {
+					red = 1f;
+					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
+				}
+				break;
 			}
-			break;
-		case "Skill2":
-			if (playerAttacker.dis <= 4f) {
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
-			}
-			else {
-				red = 1f;
-				GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
-			}
-			break;
+		} else {
+			red = 1f;
+			GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
 		}
 
 		/*if (playerAttacker.dis <= 3f) {

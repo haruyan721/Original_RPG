@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 38e3b99208c304e7fa14c6303521c806
+timeCreated: 1503453926
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mgen+ 1c
+  fontNames:
+  - Mgen+ 1c
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

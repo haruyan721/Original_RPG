@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour {
 
+	GameObject player;
 	GameObject [] enemys;
 	GameObject [] players;
 	GameObject enemyPrefab;
@@ -25,6 +26,7 @@ public class TurnManager : MonoBehaviour {
 	GameObject fadePanel;
 	FadeManager fadeManager;
 	BattleBonusScript battleBonusScript;
+	LevelUpScript levelUpScript;
 
 
 	void Awake (){
@@ -64,9 +66,11 @@ public class TurnManager : MonoBehaviour {
 
 		enemyStatus = enemy.GetComponent<EnemyStatus> (); //敵のステータスから素早さを取得
 		enemySpeedCheck = enemyStatus.enemySpeed; //代入
+		player = GameObject.Find("Player");
 		fadePanel = GameObject.Find("FadePanel");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
 		battleBonusScript = enemy.GetComponent<BattleBonusScript>();
+		levelUpScript = player.GetComponent<LevelUpScript> ();
 		fadeManager.fadeName = "BattleStart";
 		fadeManager.changeType = 2;
 		MenberCheck();
@@ -76,25 +80,20 @@ public class TurnManager : MonoBehaviour {
 
 	void Update () {
 		if (enemyMenber == 0 && battleEndCheck == 0 && escapeCheck == 0) {
-			battleText = "You Win!!";
+			battleText = "敵を倒した！";
 			battleEndCheck = 1;
 			textWindow.text = battleText;
 			battleBonusScript.BattleBonusGet ();
-			/*PlayerStatus.exp += 20;
-			PlayerStatus.gold += 5;*/
-			if (PlayerFieldMoveScript.battleEnemy == 3) {
-				Invoke ("ClearWait", 2);
-			} else {
-				Invoke ("FieldBackWait", 2);
-			}
+			Invoke ("BattleEndproces", 0.1f);
+
 		}else if(playerMenber == 0 && battleEndCheck == 0 && escapeCheck == 0){
 			battleEndCheck = 1;
-			battleText = "You lose…";
+			battleText = "負けてしまった…";
 			textWindow.text = battleText;
 			Invoke ("GameOverWait", 2);
 		} else if (escapeCheck == 1) {
 			battleEndCheck = 1;
-			battleText = "Escape!";
+			battleText = "逃げ出した！";
 			textWindow.text = battleText;
 			Invoke ("FieldBackWait", 2);
 
@@ -103,7 +102,10 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	public void Next(){
-		
+		if (playerMenber == 0) {
+			battleText = "負けてしまった…";
+			textWindow.text = battleText;
+		}
 		if (turncount == allMenber && battleEndCheck == 0) {
 			turncount = 1;
 		} else {
@@ -161,19 +163,38 @@ public class TurnManager : MonoBehaviour {
 		SceneManager.LoadScene ("Clear");
 	}
 
+	void LevelUp(){
+		levelUpScript.levelUpCheck = 0;
+		battleText = "レベルアップ！";
+		textWindow.text = battleText;
+		Invoke ("FieldBackWait", 2);
+	}
+
+	void BattleEndproces (){
+		Debug.Log (levelUpScript.levelUpCheck);
+		if (PlayerFieldMoveScript.battleEnemy == 3) {
+			Invoke ("ClearWait", 2);
+		} else if (levelUpScript.levelUpCheck == 1) {
+			Debug.Log ("ok");
+			Invoke ("LevelUp", 2);
+		} else {
+			Invoke ("FieldBackWait", 2);
+		}
+	}
+
 	public void BattleStart(){
 		if (playerSpeedCheck >= enemySpeedCheck) { //どちらが先に動くかの処理
 
 			playerTurnNum = 1; //ターン順の決定
 			enemyTurnNum = 2;
-			battleText = "your turn"; 
+			battleText = "あなたのターン"; 
 			textWindow.text = battleText;
 
 		} else {
 
 			playerTurnNum = 2; //ターン順の決定
 			enemyTurnNum = 1;
-			battleText = "enemy turn"; 
+			battleText = "敵のターン"; 
 			textWindow.text = battleText;
 
 		}

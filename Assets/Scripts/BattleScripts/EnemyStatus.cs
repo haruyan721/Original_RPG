@@ -25,13 +25,13 @@ public class EnemyStatus : MonoBehaviour {
 			enemySpeed = 8;
 			enemyPower = 9;
 			enemyHp = 20;
-			enemyMoveRange = 30;
+			enemyMoveRange = 25;
 			break;
 		case 3:
 			enemySpeed = 12;
 			enemyPower = 17;
 			enemyHp = 90;
-			enemyMoveRange = 35;
+			enemyMoveRange = 30;
 			break;
 		}
 	}

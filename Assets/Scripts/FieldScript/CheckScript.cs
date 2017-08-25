@@ -41,10 +41,10 @@ public class CheckScript : MonoBehaviour {
 	}
 
 	void OnCollisionStay (Collision col){
-		if (col.gameObject.tag == "Rest" && Input.GetKeyDown(KeyCode.P) /*&& PlayerStatus.gold >= 8 && playerStatus.noStatusMax == 1*/) {
+		if (col.gameObject.tag == "Rest" && Input.GetMouseButtonDown(0) /*&& PlayerStatus.gold >= 8 && playerStatus.noStatusMax == 1*/) {
 			restCheckScript.RestCheck ();
 		}
-		if (col.gameObject.tag == "NPC" && Input.GetKeyDown (KeyCode.P)) {
+		if (col.gameObject.tag == "NPC" && Input.GetMouseButtonDown(0)) {
 			if (talkCheck == 0) {
 				npcSentenceScript = col.gameObject.GetComponent<NPCSentenceScript>();
 				talkCheck = 1;
@@ -57,7 +57,7 @@ public class CheckScript : MonoBehaviour {
 				talkWindow.SetActive (false);
 			}
 		}
-		if (col.gameObject.tag == "Boss" && Input.GetKeyDown (KeyCode.P)) {
+		if (col.gameObject.tag == "Boss" && Input.GetMouseButtonDown(0)) {
 			if (talkCheck == 0) {
 				npcSentenceScript = col.gameObject.GetComponent<NPCSentenceScript>();
 				talkCheck = 1;
@@ -74,7 +74,7 @@ public class CheckScript : MonoBehaviour {
 				fadeManager.changeType = 1;
 			}
 		}
-		if (col.gameObject.tag == "Trader1" && Input.GetKeyDown (KeyCode.P)) {
+		if (col.gameObject.tag == "Trader1" && Input.GetMouseButtonDown(0)) {
 			if (talkCheck == 0 && shopPopUpScript.shopPopUpCheck == 0) {
 				npcSentenceScript = col.gameObject.GetComponent<NPCSentenceScript>();
 				talkText.text = npcSentenceScript.InSentence ();

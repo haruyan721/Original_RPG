@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerFieldMoveScript : MonoBehaviour {
 
@@ -22,8 +21,10 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 	void Awake(){
 		if (PlayerPrefs.GetInt ("saveCheck") == 1 && sceneStart == 0) {
-			mypos = new Vector3(PlayerPrefs.GetFloat("player_XPosSaveDate"),0.725f,PlayerPrefs.GetFloat("player_ZPosSaveDate"));
+			mypos = new Vector3 (PlayerPrefs.GetFloat ("player_XPosSaveDate"), 0.725f, PlayerPrefs.GetFloat ("player_ZPosSaveDate"));
 			townMode = PlayerPrefs.GetInt ("townModeSaveDate");
+		} else if (PlayerPrefs.GetInt ("saveCheck") == 0 && sceneStart == 0) {
+			mypos = new Vector3 (0, 0.725f, 0);
 		}
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");
@@ -34,12 +35,10 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 
 
 	void Start () {
-		if (sceneStart == 1) {
-			moveStop = 1;
-			fadeManager.fadeName = "BattleEnd";
-			fadePanel.SetActive (true);
-			fadeManager.changeType = 2;
-		}
+		moveStop = 1;
+		fadeManager.fadeName = "BattleEnd";
+		fadePanel.SetActive (true);
+		fadeManager.changeType = 2;
 		sceneStart = 1;
 	}
 	

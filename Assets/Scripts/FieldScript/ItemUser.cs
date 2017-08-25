@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ItemUser : MonoBehaviour {
 	GameObject turnManagemnt;
+	AudioSource audio;
 	TurnManager turnManager;
 	PlayerMover playerMover;
 	ItemManager itemManager;
 	ItemWindowPopUp itemWindowPopUp;
 	PlayerStatus playerStatus;
+	public AudioClip healSound;
 	// Use this for initialization
 	void Start () {
 		if (SceneManager.GetActiveScene ().name == "Battle") {
@@ -18,6 +20,7 @@ public class ItemUser : MonoBehaviour {
 			playerMover = GetComponent<PlayerMover> ();
 			itemWindowPopUp = GetComponent<ItemWindowPopUp> ();
 		}
+		audio = GetComponent<AudioSource> ();
 		itemManager = GetComponent<ItemManager> ();
 		playerStatus = GetComponent<PlayerStatus> ();
 	}
@@ -37,6 +40,7 @@ public class ItemUser : MonoBehaviour {
 			if (SceneManager.GetActiveScene ().name == "Field") {
 				itemManager.Potion ();
 			}
+			audio.PlayOneShot (healSound);
 		}
 	}
 
@@ -51,6 +55,8 @@ public class ItemUser : MonoBehaviour {
 			if (SceneManager.GetActiveScene ().name == "Field") {
 				itemManager.Tablet ();
 			}
+			audio.PlayOneShot (healSound);
 		}
+
 	}
 }

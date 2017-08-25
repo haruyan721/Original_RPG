@@ -57,12 +57,12 @@ public class ItemWindowPopUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (SceneManager.GetActiveScene ().name == "Field") {
-			potionNumSentence = "ポーション : " + ItemTankScript.potionNum.ToString ();
+			potionNumSentence = "ポーション: " + ItemTankScript.potionNum.ToString ();
 			potionTextWindow.text = potionNumSentence;
 			if (ItemTankScript.potionNum == 0) {
 				potion.SetActive (false);
 			}
-			tabletNumSentence = "タブレット : " + ItemTankScript.tabletNum.ToString ();
+			tabletNumSentence = "タブレット: " + ItemTankScript.tabletNum.ToString ();
 			tabletTextWindow.text = tabletNumSentence;
 			if (ItemTankScript.tabletNum == 0) {
 				tablet.SetActive (false);
@@ -82,9 +82,9 @@ public class ItemWindowPopUp : MonoBehaviour {
 					tablet.SetActive (false);
 				}
 				itemWindow.SetActive (true);
-				potionNumSentence = "ポーション : " + ItemTankScript.potionNum.ToString ();
+				potionNumSentence = "ポーション: " + ItemTankScript.potionNum.ToString ();
 				potionTextWindow.text = potionNumSentence;
-				tabletNumSentence = "タブレット : " + ItemTankScript.tabletNum.ToString ();
+				tabletNumSentence = "タブレット: " + ItemTankScript.tabletNum.ToString ();
 				tabletTextWindow.text = tabletNumSentence;
 				nextButton.SetActive (false);
 				itemPopUpCheck++;

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponEquScript : MonoBehaviour {
-
+	AudioSource audio;
+	public AudioClip equSound;
 	// Use this for initialization
 	void Start () {
+		audio = GetComponent<AudioSource>();
 		
 	}
 	
@@ -15,10 +17,16 @@ public class WeaponEquScript : MonoBehaviour {
 	}
 
 	public void SwordEqu(){
-		WeaponManager.weaponNum = 1;
+		if (WeaponManager.weaponNum == 2) {
+			audio.PlayOneShot (equSound);
+			WeaponManager.weaponNum = 1;
+		}
 	}
 
 	public void BowEqu(){
-		WeaponManager.weaponNum = 2;
+		if (WeaponManager.weaponNum == 1) {
+			audio.PlayOneShot (equSound);
+			WeaponManager.weaponNum = 2;
+		}
 	}
 }
