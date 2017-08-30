@@ -7,7 +7,12 @@ public class DateSaveScript : MonoBehaviour {
 	PlayerFieldMoveScript playerFieldMoveScript;
 	AudioSource audio;
 	public AudioClip savaSound;
+	GameObject savepop;
 
+	void Awake(){
+		savepop = GameObject.Find ("SaveText");
+		savepop.SetActive (false);
+	}
 	// Use this for initialization
 	void Start () {
 		//PlayerPrefs.DeleteKey("saveCheck");
@@ -42,5 +47,11 @@ public class DateSaveScript : MonoBehaviour {
 		PlayerPrefs.SetFloat ("player_XPosSaveDate", this.transform.position.x);
 		PlayerPrefs.SetFloat ("player_ZPosSaveDate", this.transform.position.z);
 		PlayerPrefs.SetInt ("equWeaponSaveDate", WeaponManager.weaponNum);
+		savepop.SetActive (true);
+		Invoke ("SavePopDown", 1.5f);
+	}
+
+	void SavePopDown(){
+		savepop.SetActive (false);
 	}
 }
