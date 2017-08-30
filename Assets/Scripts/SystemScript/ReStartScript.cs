@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class ReStartScript : MonoBehaviour {
 	GameObject fadePanel;
 	FadeManager fadeManager;
+	AudioSource audio;
+	public AudioClip popSound;
 	// Use this for initialization
 	void Start () {
 		fadePanel = GameObject.Find ("FadePanel");
 		fadeManager = fadePanel.GetComponent<FadeManager> ();
+		audio = GetComponent<AudioSource> ();
 		fadeManager.fadeName = "GameOver";
 		fadeManager.changeType = 2;
 	}
@@ -19,6 +22,7 @@ public class ReStartScript : MonoBehaviour {
 		
 	}
 	public void GoTitleFade(){
+		audio.PlayOneShot (popSound);
 		PlayerFieldMoveScript.sceneStart = 0;
 		fadePanel.SetActive (true);
 		fadeManager.fadeName = "Title";

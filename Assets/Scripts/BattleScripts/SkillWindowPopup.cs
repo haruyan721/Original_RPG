@@ -10,6 +10,7 @@ public class SkillWindowPopup : MonoBehaviour {
 	GameObject nextButton;
 	TurnManager turnManager;
 	PlayerMover playerMover;
+	WindowPopDownSoundScript popSound;
 	public int popUpcheck;
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class SkillWindowPopup : MonoBehaviour {
 		turnManagement = GameObject.Find ("TurnManagement");
 		turnManager = turnManagement.GetComponent<TurnManager> ();
 		playerMover = GetComponent<PlayerMover> ();
+		popSound = GetComponent<WindowPopDownSoundScript> ();
 		skillButton1.SetActive (false);
 		skillButton2.SetActive (false);
 	}
@@ -31,6 +33,7 @@ public class SkillWindowPopup : MonoBehaviour {
 
 	public void PopUpDown (){
 		if (popUpcheck == 0 && turnManager.turncount == turnManager.playerTurnNum && playerMover.playercomandcheck == 0) {
+			popSound.PopUpSound ();
 			skillButton1.SetActive (true);
 			skillButton2.SetActive (true);
 			nextButton.SetActive (false);
@@ -39,6 +42,9 @@ public class SkillWindowPopup : MonoBehaviour {
 			skillButton1.SetActive (false);
 			skillButton2.SetActive (false);
 			nextButton.SetActive (true);
+			if (playerMover.playercomandcheck == 0) {
+				popSound.PopDownSound ();
+			}
 			popUpcheck--;
 		}
 	}

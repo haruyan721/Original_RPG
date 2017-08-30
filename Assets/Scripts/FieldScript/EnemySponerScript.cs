@@ -30,9 +30,9 @@ public class EnemySponerScript : MonoBehaviour {
 
 	void Sporn(){
 		enemyRandomNum = Random.Range (1, 11);
-		if (enemyRandomNum <= 7) {
+		if (enemyRandomNum <= 8) {
 			Instantiate (enemy);
-		} else if (enemyRandomNum >= 8) {
+		} else if (enemyRandomNum >= 9) {
 			Instantiate (enemy2);
 		}
 	}

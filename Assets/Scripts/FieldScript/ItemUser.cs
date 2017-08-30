@@ -30,7 +30,6 @@ public class ItemUser : MonoBehaviour {
 		
 	}
 	public void PotionUse(){
-		if (playerStatus.noHpMax == 1) {
 			if (SceneManager.GetActiveScene ().name == "Battle") {
 				if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
 					itemWindowPopUp.ItemPopUpDown ();
@@ -41,11 +40,9 @@ public class ItemUser : MonoBehaviour {
 				itemManager.Potion ();
 			}
 			audio.PlayOneShot (healSound);
-		}
 	}
 
 	public void TabletUse(){
-		if (playerStatus.noMpMax == 1) {
 			if (SceneManager.GetActiveScene ().name == "Battle") {
 				if (turnManager.playerTurnNum == turnManager.turncount && playerMover.playercomandcheck == 0) {
 					itemWindowPopUp.ItemPopUpDown ();
@@ -56,7 +53,6 @@ public class ItemUser : MonoBehaviour {
 				itemManager.Tablet ();
 			}
 			audio.PlayOneShot (healSound);
-		}
 
 	}
 }

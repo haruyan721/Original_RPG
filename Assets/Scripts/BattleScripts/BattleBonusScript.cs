@@ -17,14 +17,14 @@ public class BattleBonusScript : MonoBehaviour {
 	public void BattleBonusGet(){
 		switch (PlayerFieldMoveScript.battleEnemy) {
 		case 1:
-			expBonus = 20;
-			goldBonus = 5;
+			expBonus = 30;
+			goldBonus = 3;
 			PlayerStatus.exp += expBonus;
 			PlayerStatus.gold += goldBonus;
 			break;
 		case 2:
-			expBonus = 40;
-			goldBonus = 10;
+			expBonus = 70;
+			goldBonus = 5;
 			PlayerStatus.exp += expBonus;
 			PlayerStatus.gold += goldBonus;
 			break;

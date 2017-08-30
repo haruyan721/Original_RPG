@@ -1513,6 +1513,7 @@ GameObject:
   - component: {fileID: 818504907}
   - component: {fileID: 818504909}
   - component: {fileID: 818504910}
+  - component: {fileID: 818504911}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1612,6 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b35eeca4de5c4a148a6c54e97452f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpCheck: 0
 --- !u!114 &818504897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1856,20 @@ MonoBehaviour:
   weaponName: 
   addPower: 0
   attackRange: 0
+--- !u!114 &818504911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818504890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b447a9ad80fe449a585954dd71f947c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WindowPopUp: {fileID: 8300000, guid: 735d9b13fa8734a77921a0248f53af8c, type: 3}
+  WindowPopDown: {fileID: 8300000, guid: 615383e15e88b4330be87039019a7b0a, type: 3}
+  yesSound: {fileID: 8300000, guid: 7c997fde3a518413c938443c24b6aacc, type: 3}
 --- !u!1 &849270538
 GameObject:
   m_ObjectHideFlags: 0

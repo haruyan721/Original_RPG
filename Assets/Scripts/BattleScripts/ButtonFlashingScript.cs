@@ -38,7 +38,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 				}
 				break;
 			case "Skill1":
-				if (playerAttacker.dis <= 6f) {
+				if (playerAttacker.dis <= 6f && PlayerStatus.playerMp >= 3) {
 					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
 				} else {
 				
@@ -47,7 +47,7 @@ public class ButtonFlashingScript : MonoBehaviour {
 				}
 				break;
 			case "Skill2":
-				if (playerAttacker.dis <= 4f) {
+				if (playerAttacker.dis <= 4f && PlayerStatus.playerMp >= 5) {
 					GetComponent<Image> ().color = new Color (red += changeSpeed, 255, 255, 1);
 				} else {
 					red = 1f;

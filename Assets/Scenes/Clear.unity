@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ff11354ae0540868e1401fd70925a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popSound: {fileID: 8300000, guid: 735d9b13fa8734a77921a0248f53af8c, type: 3}
 --- !u!82 &594458024
 AudioSource:
   m_ObjectHideFlags: 0

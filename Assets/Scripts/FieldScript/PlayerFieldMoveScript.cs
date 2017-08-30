@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerFieldMoveScript : MonoBehaviour {
 
-	public static Vector3 mypos = new Vector3(0,0.725f,0);
+	public static Vector3 mypos = new Vector3(-10,0.725f,0);
 	public static int battleEnemy = 0;
 	public int townMode;
 	int moveSpeed = 15;
@@ -24,7 +24,8 @@ public class PlayerFieldMoveScript : MonoBehaviour {
 			mypos = new Vector3 (PlayerPrefs.GetFloat ("player_XPosSaveDate"), 0.725f, PlayerPrefs.GetFloat ("player_ZPosSaveDate"));
 			townMode = PlayerPrefs.GetInt ("townModeSaveDate");
 		} else if (PlayerPrefs.GetInt ("saveCheck") == 0 && sceneStart == 0) {
-			mypos = new Vector3 (0, 0.725f, 0);
+			mypos = new Vector3 (-60, 0.725f, 0);
+			townMode = 1;
 		}
 		transform.position = mypos;
 		fadePanel = GameObject.Find ("FadePanel");

@@ -15,6 +15,7 @@ public class ShopBuyCheck : MonoBehaviour {
 	//string nameCheck;
 	string buyThingName;
 	CheckScript checkScript;
+	WindowPopDownSoundScript popSound;
 	// Use this for initialization
 	void Start () {
 		buyCheckFade = GameObject.Find ("BuyCheckFade");
@@ -23,6 +24,7 @@ public class ShopBuyCheck : MonoBehaviour {
 		//shopPanel = GameObject.Find ("ShopPanel");
 		buyThingSentence = buyThingText.GetComponent<Text> ();
 		checkScript = player.GetComponent<CheckScript> ();
+		popSound = player.GetComponent<WindowPopDownSoundScript> ();
 		/*nameCheck = transform.name;
 		switch (nameCheck) {
 		case "PotionBuy":
@@ -43,11 +45,11 @@ public class ShopBuyCheck : MonoBehaviour {
 		
 		switch (buyItemCheck) {
 		case 1:
-			buyThingName = "Potion";
+			buyThingName = "ポーション";
 			price = 12;
 			break;
 		case 2:
-			buyThingName = "Tablet";
+			buyThingName = "タブレット";
 			price = 16;
 			break;
 		}
@@ -65,6 +67,7 @@ public class ShopBuyCheck : MonoBehaviour {
 	public void BuyCheck(){
 		if (price < PlayerStatus.gold) {
 			if (buyCheckPopUp == 0) {
+				popSound.PopUpSound ();
 				buyCheckPopUp = 1;
 				buyThingSentence.text = buyThingName;
 				buyCheckFade.SetActive (true);
@@ -73,11 +76,13 @@ public class ShopBuyCheck : MonoBehaviour {
 				buyCheckFade.SetActive (false);
 			}
 		}else if(price > PlayerStatus.gold){
+			popSound.PopDownSound ();
 			checkScript.talkText.text = "お金が足りません…。";
 		}
 	}
 
 	public void Buy(){
+		popSound.Yes ();
 		switch (buyItemCheck) {
 		case 1:
 			ItemTankScript.potionNum++;
@@ -91,6 +96,7 @@ public class ShopBuyCheck : MonoBehaviour {
 	}
 
 	public void DontBuy(){
+		popSound.PopDownSound ();
 		BuyCheck ();
 	}
 }

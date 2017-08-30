@@ -7,10 +7,12 @@ public class ShopPopUpScript : MonoBehaviour {
 	GameObject shopPanel;
 	GameObject player;
 	PlayerFieldMoveScript playerFieldMoveScript;
+	WindowPopDownSoundScript popSound;
 	// Use this for initialization
 	void Start () {
 		shopPanel = GameObject.Find ("ShopPanel");
 		player = GameObject.Find ("Player");
+		popSound = player.GetComponent<WindowPopDownSoundScript> ();
 		playerFieldMoveScript = player.GetComponent<PlayerFieldMoveScript> ();
 		shopPanel.SetActive (false);
 	}
@@ -21,10 +23,12 @@ public class ShopPopUpScript : MonoBehaviour {
 	}
 	public void ShopPopUP(){
 		if (shopPopUpCheck == 0) {
+			popSound.PopUpSound ();
 			shopPopUpCheck = 1;
 			playerFieldMoveScript.moveStop = 1;
 			shopPanel.SetActive (true);
 		} else if (shopPopUpCheck == 1) {
+			popSound.PopDownSound ();
 			shopPopUpCheck = 0;
 			playerFieldMoveScript.moveStop = 0;
 			shopPanel.SetActive (false);

@@ -19,7 +19,7 @@ public class ItemManager : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "Battle") {
 			if (ItemTankScript.potionNum > 0) {
 				ItemTankScript.potionNum--;
-				PlayerStatus.playerHp += 50;
+				PlayerStatus.playerHp += Random.Range(26,33);
 				if (PlayerStatus.playerHp > PlayerStatus.maxPlayerHp) {
 					PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;			
 				}
@@ -27,9 +27,9 @@ public class ItemManager : MonoBehaviour {
 			}
 		}
 		if (SceneManager.GetActiveScene ().name == "Field") {
-			ItemTankScript.potionNum--;
 			if(ItemTankScript.potionNum > 0){
-			PlayerStatus.playerHp += 50;
+				ItemTankScript.potionNum--;
+				PlayerStatus.playerHp += Random.Range(26,33);
 				if (PlayerStatus.playerHp > PlayerStatus.maxPlayerHp) {
 					PlayerStatus.playerHp = PlayerStatus.maxPlayerHp;	
 				}
@@ -40,7 +40,7 @@ public class ItemManager : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "Battle") {
 			if (ItemTankScript.tabletNum > 0) {
 				ItemTankScript.tabletNum--;
-				PlayerStatus.playerMp += 20;
+				PlayerStatus.playerMp += Random.Range(8,13);
 				if (PlayerStatus.playerMp > PlayerStatus.maxPlayerMp) {
 					PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;			
 				}
@@ -50,7 +50,7 @@ public class ItemManager : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "Field") {
 			if(ItemTankScript.tabletNum > 0){
 				ItemTankScript.tabletNum--;
-				PlayerStatus.playerMp += 20;
+				PlayerStatus.playerMp += Random.Range(8,13);
 				if (PlayerStatus.playerMp > PlayerStatus.maxPlayerMp) {
 					PlayerStatus.playerMp = PlayerStatus.maxPlayerMp;	
 				}

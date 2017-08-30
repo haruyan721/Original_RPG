@@ -17,20 +17,20 @@ public class EnemyStatus : MonoBehaviour {
 		switch (PlayerFieldMoveScript.battleEnemy) {
 		case 1:
 			enemySpeed = 8;
-			enemyPower = 6;
-			enemyHp = 12;
+			enemyPower = 8;
+			enemyHp = 25;
 			enemyMoveRange = 15;
 			break;
 		case 2:
-			enemySpeed = 8;
-			enemyPower = 9;
-			enemyHp = 20;
-			enemyMoveRange = 25;
+			enemySpeed = 10;
+			enemyPower = 12;
+			enemyHp = 60;
+			enemyMoveRange = 20;
 			break;
 		case 3:
 			enemySpeed = 12;
-			enemyPower = 17;
-			enemyHp = 90;
+			enemyPower = 16;
+			enemyHp = 130;
 			enemyMoveRange = 30;
 			break;
 		}

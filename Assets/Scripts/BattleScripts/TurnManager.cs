@@ -171,7 +171,6 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	void BattleEndproces (){
-		Debug.Log (levelUpScript.levelUpCheck);
 		if (PlayerFieldMoveScript.battleEnemy == 3) {
 			Invoke ("ClearWait", 2);
 		} else if (levelUpScript.levelUpCheck == 1) {
