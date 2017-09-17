@@ -55,7 +55,11 @@ public class CheckScript : MonoBehaviour {
 	}
 
 	void OnCollisionStay (Collision col){
-		buttonPopCheck = 1;
+		
+		if (col.gameObject.tag != "Field") {
+			buttonPopCheck = 1;
+		}
+
 		if (col.gameObject.tag == "Rest" && checkButtonScript.checkCount == 1 /*&& PlayerStatus.gold >= 8 && playerStatus.noStatusMax == 1*/) {
 			restCheckScript.RestCheck ();
 			checkButtonScript.checkCount = 0;

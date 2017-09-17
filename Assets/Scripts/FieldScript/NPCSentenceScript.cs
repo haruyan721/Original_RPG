@@ -32,7 +32,7 @@ public class NPCSentenceScript : MonoBehaviour {
 			textSentence = "あなた強そうなんで黒い奴倒してもらえます？僕？無理。";
 			break;
 		case "NPC5":
-			textSentence = "お金のBはブロン、 OPはオブジェクト パワーのことな。";
+			textSentence = "メニューのOPはオブパワー、Bはブロンでお金のことな。";
 			break;
 		case "NPC6":
 			textSentence = "赤い奴には最初は 近づかない方が いいんでねぇか？";

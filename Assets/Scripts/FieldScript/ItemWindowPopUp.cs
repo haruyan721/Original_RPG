@@ -66,6 +66,11 @@ public class ItemWindowPopUp : MonoBehaviour {
 		if (SceneManager.GetActiveScene ().name == "Field") {
 			potionNumSentence = "ポーション: " + ItemTankScript.potionNum.ToString ();
 			potionTextWindow.text = potionNumSentence;
+			if (ItemTankScript.potionNum >= 1) {
+				potion.SetActive (true);
+				potionExpo.SetActive (true);
+				potionUseButton.SetActive (true);
+			}
 			if (ItemTankScript.potionNum == 0) {
 				potion.SetActive (false);
 				potionExpo.SetActive (false);
@@ -73,6 +78,11 @@ public class ItemWindowPopUp : MonoBehaviour {
 			}
 			tabletNumSentence = "タブレット: " + ItemTankScript.tabletNum.ToString ();
 			tabletTextWindow.text = tabletNumSentence;
+			if (ItemTankScript.tabletNum >= 1) {
+				tablet.SetActive (true);
+				tabletExpo.SetActive (true);
+				tabletUseButton.SetActive (true);
+			}
 			if (ItemTankScript.tabletNum == 0) {
 				tablet.SetActive (false);
 				tabletExpo.SetActive (false);

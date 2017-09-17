@@ -13,6 +13,7 @@ TagManager:
   - Boss
   - Trader1
   - Pad
+  - Field
   layers:
   - Default
   - TransparentFX

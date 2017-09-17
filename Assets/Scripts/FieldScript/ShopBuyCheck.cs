@@ -65,7 +65,8 @@ public class ShopBuyCheck : MonoBehaviour {
 	}
 
 	public void BuyCheck(){
-		if (price < PlayerStatus.gold) {
+		if (price <= PlayerStatus.gold) {
+			Debug.Log ("ok");
 			if (buyCheckPopUp == 0) {
 				popSound.PopUpSound ();
 				buyCheckPopUp = 1;

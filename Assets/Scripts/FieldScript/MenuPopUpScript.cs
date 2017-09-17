@@ -35,6 +35,7 @@ public class MenuPopUpScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (checkScript.buttonPopCheck);
 	}
 
 	public void MenuPop(){
